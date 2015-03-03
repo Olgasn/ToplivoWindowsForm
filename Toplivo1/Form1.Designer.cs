@@ -132,6 +132,7 @@
             // 
             // tanksDataGridView
             // 
+            this.tanksDataGridView.AllowUserToOrderColumns = true;
             this.tanksDataGridView.AutoGenerateColumns = false;
             this.tanksDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.tanksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -144,7 +145,7 @@
             this.tanksDataGridView.DataSource = this.tanksBindingSource;
             this.tanksDataGridView.Location = new System.Drawing.Point(3, 19);
             this.tanksDataGridView.Name = "tanksDataGridView";
-            this.tanksDataGridView.Size = new System.Drawing.Size(754, 263);
+            this.tanksDataGridView.Size = new System.Drawing.Size(754, 308);
             this.tanksDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -217,6 +218,7 @@
             // 
             // fuelsDataGridView
             // 
+            this.fuelsDataGridView.AllowUserToOrderColumns = true;
             this.fuelsDataGridView.AutoGenerateColumns = false;
             this.fuelsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.fuelsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -228,7 +230,7 @@
             this.fuelsDataGridView.DataSource = this.fuelsBindingSource;
             this.fuelsDataGridView.Location = new System.Drawing.Point(6, 28);
             this.fuelsDataGridView.Name = "fuelsDataGridView";
-            this.fuelsDataGridView.Size = new System.Drawing.Size(688, 255);
+            this.fuelsDataGridView.Size = new System.Drawing.Size(688, 296);
             this.fuelsDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn6
@@ -326,7 +328,7 @@
             this.operationsDataGridView.DataSource = this.operationsBindingSource;
             this.operationsDataGridView.Location = new System.Drawing.Point(3, 46);
             this.operationsDataGridView.Name = "operationsDataGridView";
-            this.operationsDataGridView.Size = new System.Drawing.Size(748, 237);
+            this.operationsDataGridView.Size = new System.Drawing.Size(748, 285);
             this.operationsDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn9
@@ -413,14 +415,14 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.tanksBindingNavigatorSaveItem});
-            this.tanksBindingNavigator.Location = new System.Drawing.Point(0, 331);
+            this.tanksBindingNavigator.Location = new System.Drawing.Point(0, 436);
             this.tanksBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.tanksBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.tanksBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.tanksBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.tanksBindingNavigator.Name = "tanksBindingNavigator";
             this.tanksBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.tanksBindingNavigator.Size = new System.Drawing.Size(840, 25);
+            this.tanksBindingNavigator.Size = new System.Drawing.Size(844, 25);
             this.tanksBindingNavigator.TabIndex = 1;
             this.tanksBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -529,7 +531,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(840, 356);
+            this.ClientSize = new System.Drawing.Size(844, 461);
             this.Controls.Add(this.tanksBindingNavigator);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
