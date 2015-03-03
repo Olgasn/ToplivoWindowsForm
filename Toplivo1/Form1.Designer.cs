@@ -228,7 +228,7 @@
             this.fuelsDataGridView.DataSource = this.fuelsBindingSource;
             this.fuelsDataGridView.Location = new System.Drawing.Point(6, 28);
             this.fuelsDataGridView.Name = "fuelsDataGridView";
-            this.fuelsDataGridView.Size = new System.Drawing.Size(688, 277);
+            this.fuelsDataGridView.Size = new System.Drawing.Size(688, 255);
             this.fuelsDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn6
@@ -287,7 +287,7 @@
             // 
             this.Емкость.AutoSize = true;
             this.Емкость.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Емкость.Location = new System.Drawing.Point(47, 9);
+            this.Емкость.Location = new System.Drawing.Point(12, 9);
             this.Емкость.Name = "Емкость";
             this.Емкость.Size = new System.Drawing.Size(58, 13);
             this.Емкость.TabIndex = 2;
@@ -299,9 +299,9 @@
             this.comboBox1.DataSource = this.tanksBindingSource2;
             this.comboBox1.DisplayMember = "TankType";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(111, 6);
+            this.comboBox1.Location = new System.Drawing.Point(76, 9);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(217, 21);
+            this.comboBox1.Size = new System.Drawing.Size(332, 21);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.ValueMember = "TankID";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -326,7 +326,7 @@
             this.operationsDataGridView.DataSource = this.operationsBindingSource;
             this.operationsDataGridView.Location = new System.Drawing.Point(3, 46);
             this.operationsDataGridView.Name = "operationsDataGridView";
-            this.operationsDataGridView.Size = new System.Drawing.Size(748, 256);
+            this.operationsDataGridView.Size = new System.Drawing.Size(748, 237);
             this.operationsDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn9
@@ -413,7 +413,7 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.tanksBindingNavigatorSaveItem});
-            this.tanksBindingNavigator.Location = new System.Drawing.Point(0, 581);
+            this.tanksBindingNavigator.Location = new System.Drawing.Point(0, 331);
             this.tanksBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.tanksBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.tanksBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -529,7 +529,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(840, 606);
+            this.ClientSize = new System.Drawing.Size(840, 356);
             this.Controls.Add(this.tanksBindingNavigator);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
