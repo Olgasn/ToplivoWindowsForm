@@ -36,15 +36,9 @@ namespace Toplivo1
 
         }
 
-        private void comboBox1_TextUpdate(object sender, EventArgs e)
-        {
-            
-        }
+        
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -54,9 +48,15 @@ namespace Toplivo1
             operationsBindingSource.Filter = strFilterOperation;
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void textBoxFindTankType_TextChanged(object sender, EventArgs e)
         {
+            string strFilterOperation = "TankType LIKE '";
+            strFilterOperation = strFilterOperation + textBoxFindTankType.Text + "%'";
 
+            tanksBindingSource.Filter = strFilterOperation;
         }
+
+        
+        
     }
 }

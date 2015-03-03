@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBoxFindTankType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tanksDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +79,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tanksBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.tanksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tanksDataGridView)).BeginInit();
@@ -109,6 +111,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.textBoxFindTankType);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.tanksDataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -119,16 +123,23 @@
             this.tabPage1.Text = "Емкости";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBoxFindTankType
+            // 
+            this.textBoxFindTankType.Location = new System.Drawing.Point(160, 22);
+            this.textBoxFindTankType.Name = "textBoxFindTankType";
+            this.textBoxFindTankType.Size = new System.Drawing.Size(317, 20);
+            this.textBoxFindTankType.TabIndex = 2;
+            this.textBoxFindTankType.TextChanged += new System.EventHandler(this.textBoxFindTankType_TextChanged);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(6, 3);
+            this.label3.Location = new System.Drawing.Point(6, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(194, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Емкости для хранения топлива";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // tanksDataGridView
             // 
@@ -143,9 +154,9 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.tanksDataGridView.DataSource = this.tanksBindingSource;
-            this.tanksDataGridView.Location = new System.Drawing.Point(3, 19);
+            this.tanksDataGridView.Location = new System.Drawing.Point(3, 71);
             this.tanksDataGridView.Name = "tanksDataGridView";
-            this.tanksDataGridView.Size = new System.Drawing.Size(754, 308);
+            this.tanksDataGridView.Size = new System.Drawing.Size(754, 273);
             this.tanksDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -294,7 +305,6 @@
             this.Емкость.Size = new System.Drawing.Size(58, 13);
             this.Емкость.TabIndex = 2;
             this.Емкость.Text = "Емкость";
-            this.Емкость.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox1
             // 
@@ -307,7 +317,6 @@
             this.comboBox1.TabIndex = 1;
             this.comboBox1.ValueMember = "TankID";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.TextUpdate += new System.EventHandler(this.comboBox1_TextUpdate);
             // 
             // tanksBindingSource2
             // 
@@ -525,6 +534,15 @@
             this.tanksBindingSource1.DataMember = "Tanks";
             this.tanksBindingSource1.DataSource = this.toplivo_DataSet;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(37, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Найти емкость:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -612,6 +630,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxFindTankType;
+        private System.Windows.Forms.Label label4;
     }
 }
 
