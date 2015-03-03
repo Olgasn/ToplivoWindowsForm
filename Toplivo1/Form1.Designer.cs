@@ -75,6 +75,9 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tanksBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.tanksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tanksDataGridView)).BeginInit();
@@ -106,11 +109,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.tanksDataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1055, 340);
+            this.tabPage1.Size = new System.Drawing.Size(1063, 364);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Емкости";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -126,7 +130,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.tanksDataGridView.DataSource = this.tanksBindingSource;
-            this.tanksDataGridView.Location = new System.Drawing.Point(24, 34);
+            this.tanksDataGridView.Location = new System.Drawing.Point(6, 70);
             this.tanksDataGridView.Name = "tanksDataGridView";
             this.tanksDataGridView.Size = new System.Drawing.Size(754, 263);
             this.tanksDataGridView.TabIndex = 0;
@@ -174,11 +178,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.fuelsDataGridView);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1055, 340);
+            this.tabPage2.Size = new System.Drawing.Size(1063, 364);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Виды топлива";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -192,7 +197,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.fuelsDataGridView.DataSource = this.fuelsBindingSource;
-            this.fuelsDataGridView.Location = new System.Drawing.Point(51, 47);
+            this.fuelsDataGridView.Location = new System.Drawing.Point(21, 66);
             this.fuelsDataGridView.Name = "fuelsDataGridView";
             this.fuelsDataGridView.Size = new System.Drawing.Size(688, 277);
             this.fuelsDataGridView.TabIndex = 0;
@@ -223,6 +228,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.Емкость);
             this.tabPage3.Controls.Add(this.comboBox1);
             this.tabPage3.Controls.Add(this.operationsDataGridView);
@@ -237,7 +243,7 @@
             // Емкость
             // 
             this.Емкость.AutoSize = true;
-            this.Емкость.Location = new System.Drawing.Point(54, 60);
+            this.Емкость.Location = new System.Drawing.Point(54, 34);
             this.Емкость.Name = "Емкость";
             this.Емкость.Size = new System.Drawing.Size(51, 13);
             this.Емкость.TabIndex = 2;
@@ -249,7 +255,7 @@
             this.comboBox1.DataSource = this.tanksBindingSource2;
             this.comboBox1.DisplayMember = "TankType";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(111, 60);
+            this.comboBox1.Location = new System.Drawing.Point(111, 34);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(217, 21);
             this.comboBox1.TabIndex = 1;
@@ -467,6 +473,37 @@
             this.tanksBindingSource1.DataMember = "Tanks";
             this.tanksBindingSource1.DataSource = this.toplivo_DataSet;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(218, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Операции с емкостями и топливом";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(21, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Виды топлива";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(7, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(194, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Емкости для хранения топлива";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,10 +516,12 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tanksDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tanksBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toplivo_DataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fuelsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelsBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
@@ -547,6 +586,9 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
