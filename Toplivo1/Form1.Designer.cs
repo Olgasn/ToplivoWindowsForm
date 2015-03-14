@@ -36,31 +36,21 @@
             this.textBoxFindTankType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tanksDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tanksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toplivo_DataSet = new Toplivo1.Toplivo_DataSet();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxFindFuelType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.fuelsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fuelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.Емкость = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTankID = new System.Windows.Forms.ComboBox();
             this.tanksBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.operationsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.fuelsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.operationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tanksTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.TanksTableAdapter();
             this.tableAdapterManager = new Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager();
@@ -80,8 +70,18 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tanksBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.tanksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.textBoxFindFuelType = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tanksDataGridView)).BeginInit();
@@ -171,42 +171,6 @@
             this.tanksDataGridView.Size = new System.Drawing.Size(754, 293);
             this.tanksDataGridView.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TankID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TankID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 68;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TankType";
-            this.dataGridViewTextBoxColumn2.HeaderText = "TankType";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TankVolume";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TankVolume";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 92;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "TankWeight";
-            this.dataGridViewTextBoxColumn4.HeaderText = "TankWeight";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 91;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TankMaterial";
-            this.dataGridViewTextBoxColumn5.HeaderText = "TankMaterial";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 94;
-            // 
             // tanksBindingSource
             // 
             this.tanksBindingSource.DataMember = "Tanks";
@@ -230,6 +194,23 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Виды топлива";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Найти вид топлива:";
+            // 
+            // textBoxFindFuelType
+            // 
+            this.textBoxFindFuelType.Location = new System.Drawing.Point(118, 17);
+            this.textBoxFindFuelType.Name = "textBoxFindFuelType";
+            this.textBoxFindFuelType.Size = new System.Drawing.Size(325, 20);
+            this.textBoxFindFuelType.TabIndex = 2;
+            this.textBoxFindFuelType.TextChanged += new System.EventHandler(this.textBoxFindFuelType_TextChanged);
             // 
             // label2
             // 
@@ -258,28 +239,6 @@
             this.fuelsDataGridView.Size = new System.Drawing.Size(688, 286);
             this.fuelsDataGridView.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "FuelID";
-            this.dataGridViewTextBoxColumn6.HeaderText = "FuelID";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 63;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "FuelType";
-            this.dataGridViewTextBoxColumn7.HeaderText = "FuelType";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 76;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "FuelDensity";
-            this.dataGridViewTextBoxColumn8.HeaderText = "FuelDensity";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 87;
-            // 
             // fuelsBindingSource
             // 
             this.fuelsBindingSource.DataMember = "Fuels";
@@ -290,7 +249,7 @@
             this.tabPage3.AutoScroll = true;
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.Емкость);
-            this.tabPage3.Controls.Add(this.comboBox1);
+            this.tabPage3.Controls.Add(this.comboBoxTankID);
             this.tabPage3.Controls.Add(this.operationsDataGridView);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -320,17 +279,17 @@
             this.Емкость.TabIndex = 2;
             this.Емкость.Text = "Задать емкость:";
             // 
-            // comboBox1
+            // comboBoxTankID
             // 
-            this.comboBox1.DataSource = this.tanksBindingSource2;
-            this.comboBox1.DisplayMember = "TankType";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(101, 9);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(332, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.ValueMember = "TankID";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxTankID.DataSource = this.tanksBindingSource2;
+            this.comboBoxTankID.DisplayMember = "TankType";
+            this.comboBoxTankID.FormattingEnabled = true;
+            this.comboBoxTankID.Location = new System.Drawing.Point(101, 9);
+            this.comboBoxTankID.Name = "comboBoxTankID";
+            this.comboBoxTankID.Size = new System.Drawing.Size(332, 21);
+            this.comboBoxTankID.TabIndex = 1;
+            this.comboBoxTankID.ValueMember = "TankID";
+            this.comboBoxTankID.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // tanksBindingSource2
             // 
@@ -339,6 +298,7 @@
             // 
             // operationsDataGridView
             // 
+            this.operationsDataGridView.AllowUserToOrderColumns = true;
             this.operationsDataGridView.AutoGenerateColumns = false;
             this.operationsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.operationsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
@@ -354,44 +314,10 @@
             this.operationsDataGridView.Size = new System.Drawing.Size(748, 292);
             this.operationsDataGridView.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "OperationID";
-            this.dataGridViewTextBoxColumn9.HeaderText = "OperationID";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 89;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "FuelID";
-            this.dataGridViewTextBoxColumn10.DataSource = this.fuelsBindingSource1;
-            this.dataGridViewTextBoxColumn10.DisplayMember = "FuelType";
-            this.dataGridViewTextBoxColumn10.HeaderText = "FuelID";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn10.ValueMember = "FuelID";
-            this.dataGridViewTextBoxColumn10.Width = 63;
-            // 
             // fuelsBindingSource1
             // 
             this.fuelsBindingSource1.DataMember = "Fuels";
             this.fuelsBindingSource1.DataSource = this.toplivo_DataSet;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Inc_Exp";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Inc_Exp";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 71;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Date";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 55;
             // 
             // operationsBindingSource
             // 
@@ -548,22 +474,104 @@
             this.tanksBindingSource1.DataMember = "Tanks";
             this.tanksBindingSource1.DataSource = this.toplivo_DataSet;
             // 
-            // textBoxFindFuelType
+            // dataGridViewTextBoxColumn1
             // 
-            this.textBoxFindFuelType.Location = new System.Drawing.Point(118, 17);
-            this.textBoxFindFuelType.Name = "textBoxFindFuelType";
-            this.textBoxFindFuelType.Size = new System.Drawing.Size(325, 20);
-            this.textBoxFindFuelType.TabIndex = 2;
-            this.textBoxFindFuelType.TextChanged += new System.EventHandler(this.textBoxFindFuelType_TextChanged);
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TankID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Номер";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 66;
             // 
-            // label5
+            // dataGridViewTextBoxColumn2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Найти вид топлива:";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TankType";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Наименование";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 108;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TankVolume";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Объем";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 67;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "TankWeight";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Вес";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 51;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TankMaterial";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Материал";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 82;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "FuelID";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Номер";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 66;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "FuelType";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Наименование";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 108;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "FuelDensity";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Плотность";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 86;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "OperationID";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Номер";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 66;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "FuelID";
+            this.dataGridViewTextBoxColumn10.DataSource = this.fuelsBindingSource1;
+            this.dataGridViewTextBoxColumn10.DisplayMember = "FuelType";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Топливо";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn10.ValueMember = "FuelID";
+            this.dataGridViewTextBoxColumn10.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Inc_Exp";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Получено- Отпущено";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Date";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Дата";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 58;
             // 
             // Form1
             // 
@@ -626,29 +634,17 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton tanksBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView tanksDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private Toplivo_DataSetTableAdapters.FuelsTableAdapter fuelsTableAdapter;
         private System.Windows.Forms.BindingSource fuelsBindingSource;
         private System.Windows.Forms.DataGridView fuelsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private Toplivo_DataSetTableAdapters.OperationsTableAdapter operationsTableAdapter;
         private System.Windows.Forms.BindingSource operationsBindingSource;
         private System.Windows.Forms.DataGridView operationsDataGridView;
         private System.Windows.Forms.BindingSource fuelsBindingSource1;
         private System.Windows.Forms.BindingSource tanksBindingSource1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxTankID;
         private System.Windows.Forms.BindingSource tanksBindingSource2;
         private System.Windows.Forms.Label Емкость;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -656,6 +652,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxFindFuelType;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
     }
 }
 

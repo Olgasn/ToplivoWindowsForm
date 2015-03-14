@@ -15,6 +15,7 @@ namespace Toplivo1
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void BindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -63,7 +64,7 @@ namespace Toplivo1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string strFilterOperation = "TankID=";
-            strFilterOperation = strFilterOperation + comboBox1.SelectedValue;
+            strFilterOperation = strFilterOperation + comboBoxTankID.SelectedValue;
 
             operationsBindingSource.Filter = strFilterOperation;
         }
