@@ -70,10 +70,10 @@ namespace Toplivo1
 
         private void textBoxFindTankType_TextChanged(object sender, EventArgs e)
         {
-            string strFilterOperation = "TankType LIKE '";
-            strFilterOperation = strFilterOperation + textBoxFindTankType.Text + "%'";
+            string strFilterTank = "TankType LIKE '";
+            strFilterTank = strFilterTank + textBoxFindTankType.Text + "%'";
 
-            tanksBindingSource.Filter = strFilterOperation;
+            tanksBindingSource.Filter = strFilterTank;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,6 +92,14 @@ namespace Toplivo1
                     break;
 
             }
+        }
+
+        private void textBoxFindFuelType_TextChanged(object sender, EventArgs e)
+        {
+            string strFilterFuel = "FuelType LIKE '";
+            strFilterFuel = strFilterFuel + textBoxFindFuelType.Text + "%'";
+
+            fuelsBindingSource.Filter = strFilterFuel;
         }
 
         
