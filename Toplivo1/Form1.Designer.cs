@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.textBoxFindTankType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tanksDataGridView = new System.Windows.Forms.DataGridView();
@@ -65,7 +66,7 @@
             this.tableAdapterManager = new Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager();
             this.fuelsTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.FuelsTableAdapter();
             this.operationsTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.OperationsTableAdapter();
-            this.tanksBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.BindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -79,7 +80,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tanksBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.tanksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tanksDataGridView)).BeginInit();
@@ -93,8 +93,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.operationsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tanksBindingNavigator)).BeginInit();
-            this.tanksBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingNavigator)).BeginInit();
+            this.BindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tanksBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,6 +108,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(809, 390);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -122,6 +123,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Емкости";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(37, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Найти емкость:";
             // 
             // textBoxFindTankType
             // 
@@ -404,14 +414,14 @@
             // 
             this.operationsTableAdapter.ClearBeforeFill = true;
             // 
-            // tanksBindingNavigator
+            // BindingNavigator
             // 
-            this.tanksBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.tanksBindingNavigator.BindingSource = this.tanksBindingSource;
-            this.tanksBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.tanksBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.tanksBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tanksBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.BindingNavigator.BindingSource = this.tanksBindingSource;
+            this.BindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.BindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.BindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -424,16 +434,16 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.tanksBindingNavigatorSaveItem});
-            this.tanksBindingNavigator.Location = new System.Drawing.Point(0, 436);
-            this.tanksBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.tanksBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.tanksBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.tanksBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.tanksBindingNavigator.Name = "tanksBindingNavigator";
-            this.tanksBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.tanksBindingNavigator.Size = new System.Drawing.Size(844, 25);
-            this.tanksBindingNavigator.TabIndex = 1;
-            this.tanksBindingNavigator.Text = "bindingNavigator1";
+            this.BindingNavigator.Location = new System.Drawing.Point(0, 436);
+            this.BindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.BindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.BindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.BindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.BindingNavigator.Name = "BindingNavigator";
+            this.BindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.BindingNavigator.Size = new System.Drawing.Size(844, 25);
+            this.BindingNavigator.TabIndex = 1;
+            this.BindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -527,21 +537,12 @@
             this.tanksBindingNavigatorSaveItem.Name = "tanksBindingNavigatorSaveItem";
             this.tanksBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.tanksBindingNavigatorSaveItem.Text = "Сохранить данные";
-            this.tanksBindingNavigatorSaveItem.Click += new System.EventHandler(this.tanksBindingNavigatorSaveItem_Click);
+            this.tanksBindingNavigatorSaveItem.Click += new System.EventHandler(this.BindingNavigatorSaveItem_Click);
             // 
             // tanksBindingSource1
             // 
             this.tanksBindingSource1.DataMember = "Tanks";
             this.tanksBindingSource1.DataSource = this.toplivo_DataSet;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Найти емкость:";
             // 
             // Form1
             // 
@@ -550,7 +551,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(844, 461);
-            this.Controls.Add(this.tanksBindingNavigator);
+            this.Controls.Add(this.BindingNavigator);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Топливная база";
@@ -571,9 +572,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.operationsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tanksBindingNavigator)).EndInit();
-            this.tanksBindingNavigator.ResumeLayout(false);
-            this.tanksBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingNavigator)).EndInit();
+            this.BindingNavigator.ResumeLayout(false);
+            this.BindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tanksBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -590,7 +591,7 @@
         private System.Windows.Forms.BindingSource tanksBindingSource;
         private Toplivo_DataSetTableAdapters.TanksTableAdapter tanksTableAdapter;
         private Toplivo_DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator tanksBindingNavigator;
+        private System.Windows.Forms.BindingNavigator BindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;

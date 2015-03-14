@@ -17,11 +17,31 @@ namespace Toplivo1
             InitializeComponent();
         }
 
-        private void tanksBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void BindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
+
             this.Validate();
-            this.tanksBindingSource.EndEdit();
+
+            switch (this.tabControl1.SelectedIndex)
+            {
+
+                case 0:
+                    this.tanksBindingSource.EndEdit();
+                    break;
+                case 1:
+                    this.fuelsBindingSource.EndEdit();
+                    break;
+                case 2:
+                    this.operationsBindingSource.EndEdit();
+                    break;
+
+            }
+                
+
             this.tableAdapterManager.UpdateAll(this.toplivo_DataSet);
+
+            
+            
 
         }
 
@@ -54,6 +74,24 @@ namespace Toplivo1
             strFilterOperation = strFilterOperation + textBoxFindTankType.Text + "%'";
 
             tanksBindingSource.Filter = strFilterOperation;
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (this.tabControl1.SelectedIndex)
+            {
+
+                case 0:
+                    BindingNavigator.BindingSource=tanksBindingSource;
+                    break;
+                case 1:
+                    BindingNavigator.BindingSource=fuelsBindingSource;
+                    break;
+                case 2:
+                    BindingNavigator.BindingSource=operationsBindingSource;
+                    break;
+
+            }
         }
 
         
