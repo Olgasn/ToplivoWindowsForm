@@ -57,16 +57,13 @@ namespace Toplivo1
 
         }
 
-        
 
-        
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void comboBoxTankID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string strFilterOperation = "TankID=";
-            strFilterOperation = strFilterOperation + comboBoxTankID.SelectedValue;
-
-            operationsBindingSource.Filter = strFilterOperation;
+            FilterOperations();
         }
 
         private void textBoxFindTankType_TextChanged(object sender, EventArgs e)
@@ -97,12 +94,41 @@ namespace Toplivo1
 
         private void textBoxFindFuelType_TextChanged(object sender, EventArgs e)
         {
-            string strFilterFuel = "FuelType LIKE '";
-            strFilterFuel = strFilterFuel + textBoxFindFuelType.Text + "%'";
-
-            fuelsBindingSource.Filter = strFilterFuel;
+            FilterOperations();
         }
 
+       
+
+        private void checkBoxAll_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void FilterOperations()
+        {
+            string strFilterOperation = "TankID=";
+            strFilterOperation = strFilterOperation + comboBoxTankID.SelectedValue;
+
+            operationsBindingSource.Filter = strFilterOperation;
+
+        }
+
+        private void checkBoxAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAll.Checked)
+            {
+                comboBoxTankID.Enabled = false;
+                operationsBindingSource.RemoveFilter();
+
+            }
+            else
+            {
+                comboBoxTankID.Enabled = true;
+                FilterOperations();
+                this.Update();
+            }
+        }
         
         
     }

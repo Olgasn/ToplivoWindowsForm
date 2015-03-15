@@ -53,6 +53,7 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fuelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBoxAll = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Емкость = new System.Windows.Forms.Label();
             this.comboBoxTankID = new System.Windows.Forms.ComboBox();
@@ -106,7 +107,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(16, 15);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1079, 480);
@@ -120,9 +121,9 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.tanksDataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1071, 451);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Емкости";
@@ -141,7 +142,7 @@
             // textBoxFindTankType
             // 
             this.textBoxFindTankType.Location = new System.Drawing.Point(132, 15);
-            this.textBoxFindTankType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxFindTankType.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxFindTankType.Name = "textBoxFindTankType";
             this.textBoxFindTankType.Size = new System.Drawing.Size(421, 22);
             this.textBoxFindTankType.TabIndex = 2;
@@ -172,7 +173,7 @@
             this.dataGridViewTextBoxColumn5});
             this.tanksDataGridView.DataSource = this.tanksBindingSource;
             this.tanksDataGridView.Location = new System.Drawing.Point(4, 63);
-            this.tanksDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tanksDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.tanksDataGridView.Name = "tanksDataGridView";
             this.tanksDataGridView.Size = new System.Drawing.Size(916, 361);
             this.tanksDataGridView.TabIndex = 0;
@@ -230,9 +231,9 @@
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.fuelsDataGridView);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1071, 451);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Виды топлива";
@@ -251,7 +252,7 @@
             // textBoxFindFuelType
             // 
             this.textBoxFindFuelType.Location = new System.Drawing.Point(157, 21);
-            this.textBoxFindFuelType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxFindFuelType.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxFindFuelType.Name = "textBoxFindFuelType";
             this.textBoxFindFuelType.Size = new System.Drawing.Size(432, 22);
             this.textBoxFindFuelType.TabIndex = 2;
@@ -281,7 +282,7 @@
             this.dataGridViewTextBoxColumn8});
             this.fuelsDataGridView.DataSource = this.fuelsBindingSource;
             this.fuelsDataGridView.Location = new System.Drawing.Point(4, 71);
-            this.fuelsDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fuelsDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.fuelsDataGridView.Name = "fuelsDataGridView";
             this.fuelsDataGridView.Size = new System.Drawing.Size(868, 352);
             this.fuelsDataGridView.TabIndex = 0;
@@ -319,18 +320,33 @@
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
+            this.tabPage3.Controls.Add(this.checkBoxAll);
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.Емкость);
             this.tabPage3.Controls.Add(this.comboBoxTankID);
             this.tabPage3.Controls.Add(this.operationsDataGridView);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1071, 451);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Операции";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAll
+            // 
+            this.checkBoxAll.AutoSize = true;
+            this.checkBoxAll.Checked = true;
+            this.checkBoxAll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAll.Location = new System.Drawing.Point(614, 15);
+            this.checkBoxAll.Name = "checkBoxAll";
+            this.checkBoxAll.Size = new System.Drawing.Size(122, 21);
+            this.checkBoxAll.TabIndex = 4;
+            this.checkBoxAll.Text = "Все операции";
+            this.checkBoxAll.UseVisualStyleBackColor = true;
+            this.checkBoxAll.CheckedChanged += new System.EventHandler(this.checkBoxAll_CheckedChanged);
+            this.checkBoxAll.Click += new System.EventHandler(this.checkBoxAll_Click);
             // 
             // label1
             // 
@@ -358,14 +374,15 @@
             // 
             this.comboBoxTankID.DataSource = this.tanksBindingSource2;
             this.comboBoxTankID.DisplayMember = "TankType";
+            this.comboBoxTankID.Enabled = false;
             this.comboBoxTankID.FormattingEnabled = true;
             this.comboBoxTankID.Location = new System.Drawing.Point(135, 11);
-            this.comboBoxTankID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxTankID.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTankID.Name = "comboBoxTankID";
             this.comboBoxTankID.Size = new System.Drawing.Size(441, 24);
             this.comboBoxTankID.TabIndex = 1;
             this.comboBoxTankID.ValueMember = "TankID";
-            this.comboBoxTankID.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxTankID.SelectedIndexChanged += new System.EventHandler(this.comboBoxTankID_SelectedIndexChanged);
             // 
             // tanksBindingSource2
             // 
@@ -386,7 +403,7 @@
             this.dataGridViewTextBoxColumn13});
             this.operationsDataGridView.DataSource = this.operationsBindingSource;
             this.operationsDataGridView.Location = new System.Drawing.Point(4, 69);
-            this.operationsDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.operationsDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.operationsDataGridView.Name = "operationsDataGridView";
             this.operationsDataGridView.Size = new System.Drawing.Size(915, 359);
             this.operationsDataGridView.TabIndex = 0;
@@ -599,7 +616,7 @@
             this.ClientSize = new System.Drawing.Size(982, 555);
             this.Controls.Add(this.BindingNavigator);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Топливная база";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -634,7 +651,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private Toplivo_DataSet toplivo_DataSet;
         private System.Windows.Forms.BindingSource tanksBindingSource;
         private Toplivo_DataSetTableAdapters.TanksTableAdapter tanksTableAdapter;
         private Toplivo_DataSetTableAdapters.TableAdapterManager tableAdapterManager;
@@ -682,6 +698,8 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        public Toplivo_DataSet toplivo_DataSet;
+        private System.Windows.Forms.CheckBox checkBoxAll;
     }
 }
 
