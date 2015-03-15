@@ -129,6 +129,12 @@ namespace Toplivo1
                 this.Update();
             }
         }
+
+        private void buttonOperation_Click(object sender, EventArgs e)
+        {
+            FormOperation Form2 = new FormOperation();
+            Form2.Show();
+        }
         
         
     }
