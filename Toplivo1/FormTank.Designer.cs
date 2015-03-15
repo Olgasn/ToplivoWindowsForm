@@ -230,7 +230,7 @@
             this.tankIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankID", true));
             this.tankIDTextBox.Location = new System.Drawing.Point(153, 59);
             this.tankIDTextBox.Name = "tankIDTextBox";
-            this.tankIDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.tankIDTextBox.Size = new System.Drawing.Size(152, 20);
             this.tankIDTextBox.TabIndex = 2;
             // 
             // tankTypeLabel
@@ -248,7 +248,7 @@
             this.tankTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankType", true));
             this.tankTypeTextBox.Location = new System.Drawing.Point(153, 85);
             this.tankTypeTextBox.Name = "tankTypeTextBox";
-            this.tankTypeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.tankTypeTextBox.Size = new System.Drawing.Size(152, 20);
             this.tankTypeTextBox.TabIndex = 4;
             // 
             // tankVolumeLabel
@@ -266,7 +266,7 @@
             this.tankVolumeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankVolume", true));
             this.tankVolumeTextBox.Location = new System.Drawing.Point(153, 111);
             this.tankVolumeTextBox.Name = "tankVolumeTextBox";
-            this.tankVolumeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.tankVolumeTextBox.Size = new System.Drawing.Size(152, 20);
             this.tankVolumeTextBox.TabIndex = 6;
             // 
             // tankWeightLabel
@@ -284,7 +284,7 @@
             this.tankWeightTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankWeight", true));
             this.tankWeightTextBox.Location = new System.Drawing.Point(153, 137);
             this.tankWeightTextBox.Name = "tankWeightTextBox";
-            this.tankWeightTextBox.Size = new System.Drawing.Size(100, 20);
+            this.tankWeightTextBox.Size = new System.Drawing.Size(152, 20);
             this.tankWeightTextBox.TabIndex = 8;
             // 
             // tankMaterialLabel
@@ -302,7 +302,7 @@
             this.tankMaterialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankMaterial", true));
             this.tankMaterialTextBox.Location = new System.Drawing.Point(153, 163);
             this.tankMaterialTextBox.Name = "tankMaterialTextBox";
-            this.tankMaterialTextBox.Size = new System.Drawing.Size(100, 20);
+            this.tankMaterialTextBox.Size = new System.Drawing.Size(152, 20);
             this.tankMaterialTextBox.TabIndex = 10;
             // 
             // FormTank

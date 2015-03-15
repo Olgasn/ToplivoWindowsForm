@@ -223,7 +223,7 @@
             this.fuelIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fuelsBindingSource, "FuelID", true));
             this.fuelIDTextBox.Location = new System.Drawing.Point(144, 51);
             this.fuelIDTextBox.Name = "fuelIDTextBox";
-            this.fuelIDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.fuelIDTextBox.Size = new System.Drawing.Size(154, 20);
             this.fuelIDTextBox.TabIndex = 2;
             // 
             // fuelTypeLabel
@@ -240,7 +240,7 @@
             this.fuelTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fuelsBindingSource, "FuelType", true));
             this.fuelTypeTextBox.Location = new System.Drawing.Point(144, 77);
             this.fuelTypeTextBox.Name = "fuelTypeTextBox";
-            this.fuelTypeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.fuelTypeTextBox.Size = new System.Drawing.Size(154, 20);
             this.fuelTypeTextBox.TabIndex = 4;
             // 
             // fuelDensityLabel
@@ -257,7 +257,7 @@
             this.fuelDensityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fuelsBindingSource, "FuelDensity", true));
             this.fuelDensityTextBox.Location = new System.Drawing.Point(144, 103);
             this.fuelDensityTextBox.Name = "fuelDensityTextBox";
-            this.fuelDensityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.fuelDensityTextBox.Size = new System.Drawing.Size(154, 20);
             this.fuelDensityTextBox.TabIndex = 6;
             // 
             // FormFuel
