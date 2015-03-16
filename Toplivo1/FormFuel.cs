@@ -31,5 +31,10 @@ namespace Toplivo1
             this.fuelsTableAdapter.Fill(this.toplivo_DataSet.Fuels);
 
         }
+
+        private void FormFuel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

@@ -32,29 +32,11 @@ namespace Toplivo1
 
         }
 
-        private void tankVolumeLabel_Click(object sender, EventArgs e)
+        private void FormTank_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            
         }
 
-        private void tankMaterialLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tankTypeLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tankWeightLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tankIDLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -12,6 +12,12 @@ namespace Toplivo1
 {
     public partial class Form1 : Form
     {
+
+        //Для работы с формами FormTank и FormFuel из формы Form1
+        FormTank formtank;
+        FormFuel formfuel;
+
+        
         public Form1()
         {
             InitializeComponent();
@@ -128,6 +134,26 @@ namespace Toplivo1
                 FilterOperations();
                 this.Update();
             }
+        }
+
+        private void buttonOpenFormTank_Click(object sender, EventArgs e)
+        {
+
+            string strFilterTank = tanksDataGridView[0, tanksDataGridView.CurrentRow.Index].Value.ToString();
+            formtank = new FormTank();
+            formtank.tanksBindingSource.Filter = "TankID=" + strFilterTank;
+
+            formtank.ShowDialog();
+        }
+
+        private void buttonOpenFormFuel_Click(object sender, EventArgs e)
+        {
+            string strFilterFuel = fuelsDataGridView[0, tanksDataGridView.CurrentRow.Index].Value.ToString();
+            
+            formfuel = new FormFuel();
+            formfuel.fuelsBindingSource.Filter = "FuelID=" + strFilterFuel;
+
+            formfuel.ShowDialog();
         }
         
         
