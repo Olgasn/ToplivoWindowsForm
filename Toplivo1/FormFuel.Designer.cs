@@ -53,6 +53,15 @@
             this.fuelIDTextBox = new System.Windows.Forms.TextBox();
             this.fuelTypeTextBox = new System.Windows.Forms.TextBox();
             this.fuelDensityTextBox = new System.Windows.Forms.TextBox();
+            this.operationsTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.OperationsTableAdapter();
+            this.operationsDataGridView = new System.Windows.Forms.DataGridView();
+            this.operationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.operationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tankIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incExpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonShowAllRecords = new System.Windows.Forms.Button();
             fuelIDLabel = new System.Windows.Forms.Label();
             fuelTypeLabel = new System.Windows.Forms.Label();
             fuelDensityLabel = new System.Windows.Forms.Label();
@@ -60,12 +69,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.fuelsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelsBindingNavigator)).BeginInit();
             this.fuelsBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.operationsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operationsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // fuelIDLabel
             // 
             fuelIDLabel.AutoSize = true;
-            fuelIDLabel.Location = new System.Drawing.Point(53, 54);
+            fuelIDLabel.Location = new System.Drawing.Point(48, 25);
             fuelIDLabel.Name = "fuelIDLabel";
             fuelIDLabel.Size = new System.Drawing.Size(44, 13);
             fuelIDLabel.TabIndex = 1;
@@ -74,7 +85,7 @@
             // fuelTypeLabel
             // 
             fuelTypeLabel.AutoSize = true;
-            fuelTypeLabel.Location = new System.Drawing.Point(53, 80);
+            fuelTypeLabel.Location = new System.Drawing.Point(48, 51);
             fuelTypeLabel.Name = "fuelTypeLabel";
             fuelTypeLabel.Size = new System.Drawing.Size(86, 13);
             fuelTypeLabel.TabIndex = 3;
@@ -83,7 +94,7 @@
             // fuelDensityLabel
             // 
             fuelDensityLabel.AutoSize = true;
-            fuelDensityLabel.Location = new System.Drawing.Point(53, 106);
+            fuelDensityLabel.Location = new System.Drawing.Point(48, 77);
             fuelDensityLabel.Name = "fuelDensityLabel";
             fuelDensityLabel.Size = new System.Drawing.Size(64, 13);
             fuelDensityLabel.TabIndex = 5;
@@ -131,14 +142,14 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.fuelsBindingNavigatorSaveItem});
-            this.fuelsBindingNavigator.Location = new System.Drawing.Point(0, 237);
+            this.fuelsBindingNavigator.Location = new System.Drawing.Point(0, 314);
             this.fuelsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.fuelsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.fuelsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.fuelsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.fuelsBindingNavigator.Name = "fuelsBindingNavigator";
             this.fuelsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.fuelsBindingNavigator.Size = new System.Drawing.Size(373, 25);
+            this.fuelsBindingNavigator.Size = new System.Drawing.Size(667, 25);
             this.fuelsBindingNavigator.TabIndex = 0;
             this.fuelsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -239,7 +250,7 @@
             // fuelIDTextBox
             // 
             this.fuelIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fuelsBindingSource, "FuelID", true));
-            this.fuelIDTextBox.Location = new System.Drawing.Point(144, 51);
+            this.fuelIDTextBox.Location = new System.Drawing.Point(139, 22);
             this.fuelIDTextBox.Name = "fuelIDTextBox";
             this.fuelIDTextBox.Size = new System.Drawing.Size(154, 20);
             this.fuelIDTextBox.TabIndex = 2;
@@ -247,7 +258,7 @@
             // fuelTypeTextBox
             // 
             this.fuelTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fuelsBindingSource, "FuelType", true));
-            this.fuelTypeTextBox.Location = new System.Drawing.Point(144, 77);
+            this.fuelTypeTextBox.Location = new System.Drawing.Point(139, 48);
             this.fuelTypeTextBox.Name = "fuelTypeTextBox";
             this.fuelTypeTextBox.Size = new System.Drawing.Size(154, 20);
             this.fuelTypeTextBox.TabIndex = 4;
@@ -255,16 +266,92 @@
             // fuelDensityTextBox
             // 
             this.fuelDensityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fuelsBindingSource, "FuelDensity", true));
-            this.fuelDensityTextBox.Location = new System.Drawing.Point(144, 103);
+            this.fuelDensityTextBox.Location = new System.Drawing.Point(139, 74);
             this.fuelDensityTextBox.Name = "fuelDensityTextBox";
             this.fuelDensityTextBox.Size = new System.Drawing.Size(154, 20);
             this.fuelDensityTextBox.TabIndex = 6;
+            // 
+            // operationsTableAdapter
+            // 
+            this.operationsTableAdapter.ClearBeforeFill = true;
+            // 
+            // operationsDataGridView
+            // 
+            this.operationsDataGridView.AllowUserToOrderColumns = true;
+            this.operationsDataGridView.AutoGenerateColumns = false;
+            this.operationsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.operationIDDataGridViewTextBoxColumn,
+            this.tankIDDataGridViewTextBoxColumn,
+            this.incExpDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn});
+            this.operationsDataGridView.DataSource = this.operationsBindingSource;
+            this.operationsDataGridView.Location = new System.Drawing.Point(12, 144);
+            this.operationsDataGridView.Name = "operationsDataGridView";
+            this.operationsDataGridView.ReadOnly = true;
+            this.operationsDataGridView.Size = new System.Drawing.Size(630, 150);
+            this.operationsDataGridView.TabIndex = 7;
+            // 
+            // operationsBindingSource
+            // 
+            this.operationsBindingSource.DataMember = "Operations";
+            this.operationsBindingSource.DataSource = this.toplivo_DataSet;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(51, 125);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(181, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Операции с выбранным топливом";
+            // 
+            // operationIDDataGridViewTextBoxColumn
+            // 
+            this.operationIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.operationIDDataGridViewTextBoxColumn.DataPropertyName = "OperationID";
+            this.operationIDDataGridViewTextBoxColumn.HeaderText = "Номер операции";
+            this.operationIDDataGridViewTextBoxColumn.Name = "operationIDDataGridViewTextBoxColumn";
+            this.operationIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.operationIDDataGridViewTextBoxColumn.Width = 107;
+            // 
+            // tankIDDataGridViewTextBoxColumn
+            // 
+            this.tankIDDataGridViewTextBoxColumn.DataPropertyName = "TankID";
+            this.tankIDDataGridViewTextBoxColumn.HeaderText = "Код емкости";
+            this.tankIDDataGridViewTextBoxColumn.Name = "tankIDDataGridViewTextBoxColumn";
+            // 
+            // incExpDataGridViewTextBoxColumn
+            // 
+            this.incExpDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.incExpDataGridViewTextBoxColumn.DataPropertyName = "Inc_Exp";
+            this.incExpDataGridViewTextBoxColumn.HeaderText = "Получено - Отпущено";
+            this.incExpDataGridViewTextBoxColumn.Name = "incExpDataGridViewTextBoxColumn";
+            this.incExpDataGridViewTextBoxColumn.Width = 128;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            // 
+            // buttonShowAllRecords
+            // 
+            this.buttonShowAllRecords.Location = new System.Drawing.Point(374, 22);
+            this.buttonShowAllRecords.Name = "buttonShowAllRecords";
+            this.buttonShowAllRecords.Size = new System.Drawing.Size(176, 23);
+            this.buttonShowAllRecords.TabIndex = 9;
+            this.buttonShowAllRecords.Text = "Показать все виды топлива";
+            this.buttonShowAllRecords.UseVisualStyleBackColor = true;
+            this.buttonShowAllRecords.Click += new System.EventHandler(this.buttonShowAllRecords_Click);
             // 
             // FormFuel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 262);
+            this.ClientSize = new System.Drawing.Size(667, 339);
+            this.Controls.Add(this.buttonShowAllRecords);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.operationsDataGridView);
             this.Controls.Add(fuelIDLabel);
             this.Controls.Add(this.fuelIDTextBox);
             this.Controls.Add(fuelTypeLabel);
@@ -281,6 +368,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.fuelsBindingNavigator)).EndInit();
             this.fuelsBindingNavigator.ResumeLayout(false);
             this.fuelsBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.operationsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operationsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +397,14 @@
         private System.Windows.Forms.TextBox fuelIDTextBox;
         private System.Windows.Forms.TextBox fuelTypeTextBox;
         private System.Windows.Forms.TextBox fuelDensityTextBox;
+        private Toplivo_DataSetTableAdapters.OperationsTableAdapter operationsTableAdapter;
+        private System.Windows.Forms.DataGridView operationsDataGridView;
+        private System.Windows.Forms.BindingSource operationsBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tankIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn incExpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonShowAllRecords;
     }
 }

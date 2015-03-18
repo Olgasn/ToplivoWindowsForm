@@ -131,7 +131,16 @@ SELECT OperationID, FuelID, TankID, Inc_Exp, Date FROM Operations WHERE (Operati
               <Mapping SourceColumn="Inc_Exp" DataSetColumn="Inc_Exp" />
               <Mapping SourceColumn="Date" DataSetColumn="Date" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="Toplivo_ConnectionString (Settings)" DbObjectName="toplivo.dbo.Operations" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT OperationID, FuelID, TankID, Inc_Exp, Date FROM dbo.Operations</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TanksTableAdapter" GeneratorDataComponentClassName="TanksTableAdapter" Name="Tanks" UserDataComponentName="TanksTableAdapter">
             <MainSource>
@@ -211,7 +220,7 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
   <xs:element name="Toplivo_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Toplivo_DataSet" msprop:Generator_UserDSName="Toplivo_DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Fuels" msprop:Generator_TableClassName="FuelsDataTable" msprop:Generator_TableVarName="tableFuels" msprop:Generator_TablePropName="Fuels" msprop:Generator_RowDeletingName="FuelsRowDeleting" msprop:Generator_RowChangingName="FuelsRowChanging" msprop:Generator_RowEvHandlerName="FuelsRowChangeEventHandler" msprop:Generator_RowDeletedName="FuelsRowDeleted" msprop:Generator_UserTableName="Fuels" msprop:Generator_RowChangedName="FuelsRowChanged" msprop:Generator_RowEvArgName="FuelsRowChangeEvent" msprop:Generator_RowClassName="FuelsRow">
+        <xs:element name="Fuels" msprop:Generator_TableClassName="FuelsDataTable" msprop:Generator_TableVarName="tableFuels" msprop:Generator_RowChangedName="FuelsRowChanged" msprop:Generator_TablePropName="Fuels" msprop:Generator_RowDeletingName="FuelsRowDeleting" msprop:Generator_RowChangingName="FuelsRowChanging" msprop:Generator_RowEvHandlerName="FuelsRowChangeEventHandler" msprop:Generator_RowDeletedName="FuelsRowDeleted" msprop:Generator_RowClassName="FuelsRow" msprop:Generator_UserTableName="Fuels" msprop:Generator_RowEvArgName="FuelsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FuelID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnFuelID" msprop:Generator_ColumnPropNameInRow="FuelID" msprop:Generator_ColumnPropNameInTable="FuelIDColumn" msprop:Generator_UserColumnName="FuelID" type="xs:int" />
@@ -226,7 +235,7 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Operations" msprop:Generator_TableClassName="OperationsDataTable" msprop:Generator_TableVarName="tableOperations" msprop:Generator_TablePropName="Operations" msprop:Generator_RowDeletingName="OperationsRowDeleting" msprop:Generator_RowChangingName="OperationsRowChanging" msprop:Generator_RowEvHandlerName="OperationsRowChangeEventHandler" msprop:Generator_RowDeletedName="OperationsRowDeleted" msprop:Generator_UserTableName="Operations" msprop:Generator_RowChangedName="OperationsRowChanged" msprop:Generator_RowEvArgName="OperationsRowChangeEvent" msprop:Generator_RowClassName="OperationsRow">
+        <xs:element name="Operations" msprop:Generator_TableClassName="OperationsDataTable" msprop:Generator_TableVarName="tableOperations" msprop:Generator_RowChangedName="OperationsRowChanged" msprop:Generator_TablePropName="Operations" msprop:Generator_RowDeletingName="OperationsRowDeleting" msprop:Generator_RowChangingName="OperationsRowChanging" msprop:Generator_RowEvHandlerName="OperationsRowChangeEventHandler" msprop:Generator_RowDeletedName="OperationsRowDeleted" msprop:Generator_RowClassName="OperationsRow" msprop:Generator_UserTableName="Operations" msprop:Generator_RowEvArgName="OperationsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OperationID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnOperationID" msprop:Generator_ColumnPropNameInRow="OperationID" msprop:Generator_ColumnPropNameInTable="OperationIDColumn" msprop:Generator_UserColumnName="OperationID" type="xs:int" />
@@ -237,7 +246,7 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Tanks" msprop:Generator_TableClassName="TanksDataTable" msprop:Generator_TableVarName="tableTanks" msprop:Generator_TablePropName="Tanks" msprop:Generator_RowDeletingName="TanksRowDeleting" msprop:Generator_RowChangingName="TanksRowChanging" msprop:Generator_RowEvHandlerName="TanksRowChangeEventHandler" msprop:Generator_RowDeletedName="TanksRowDeleted" msprop:Generator_UserTableName="Tanks" msprop:Generator_RowChangedName="TanksRowChanged" msprop:Generator_RowEvArgName="TanksRowChangeEvent" msprop:Generator_RowClassName="TanksRow">
+        <xs:element name="Tanks" msprop:Generator_TableClassName="TanksDataTable" msprop:Generator_TableVarName="tableTanks" msprop:Generator_RowChangedName="TanksRowChanged" msprop:Generator_TablePropName="Tanks" msprop:Generator_RowDeletingName="TanksRowDeleting" msprop:Generator_RowChangingName="TanksRowChanging" msprop:Generator_RowEvHandlerName="TanksRowChangeEventHandler" msprop:Generator_RowDeletedName="TanksRowDeleted" msprop:Generator_RowClassName="TanksRow" msprop:Generator_UserTableName="Tanks" msprop:Generator_RowEvArgName="TanksRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TankID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnTankID" msprop:Generator_ColumnPropNameInRow="TankID" msprop:Generator_ColumnPropNameInTable="TankIDColumn" msprop:Generator_UserColumnName="TankID" type="xs:int" />

@@ -45,6 +45,7 @@
             this.tanksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toplivo_DataSet = new Toplivo1.Toplivo_DataSet();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonOpenFormFuel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxFindFuelType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tanksBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.tanksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonOpenFormFuel = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tanksDataGridView)).BeginInit();
@@ -173,7 +173,6 @@
             this.tanksDataGridView.AllowUserToOrderColumns = true;
             this.tanksDataGridView.AutoGenerateColumns = false;
             this.tanksDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.tanksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tanksDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
@@ -247,6 +246,16 @@
             this.tabPage2.Text = "Виды топлива";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // buttonOpenFormFuel
+            // 
+            this.buttonOpenFormFuel.Location = new System.Drawing.Point(533, 58);
+            this.buttonOpenFormFuel.Name = "buttonOpenFormFuel";
+            this.buttonOpenFormFuel.Size = new System.Drawing.Size(121, 23);
+            this.buttonOpenFormFuel.TabIndex = 4;
+            this.buttonOpenFormFuel.Text = "Выбранное топливо";
+            this.buttonOpenFormFuel.UseVisualStyleBackColor = true;
+            this.buttonOpenFormFuel.Click += new System.EventHandler(this.buttonOpenFormFuel_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -280,7 +289,6 @@
             this.fuelsDataGridView.AutoGenerateColumns = false;
             this.fuelsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.fuelsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.fuelsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.fuelsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
@@ -396,7 +404,6 @@
             this.operationsDataGridView.AutoGenerateColumns = false;
             this.operationsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.operationsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.operationsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.operationsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
@@ -429,7 +436,7 @@
             this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewTextBoxColumn10.ValueMember = "FuelID";
-            this.dataGridViewTextBoxColumn10.Width = 139;
+            this.dataGridViewTextBoxColumn10.Width = 152;
             // 
             // fuelsBindingSource1
             // 
@@ -446,7 +453,7 @@
             this.TankID.Name = "TankID";
             this.TankID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.TankID.ValueMember = "TankID";
-            this.TankID.Width = 141;
+            this.TankID.Width = 154;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -454,7 +461,7 @@
             this.dataGridViewTextBoxColumn12.DataPropertyName = "Inc_Exp";
             this.dataGridViewTextBoxColumn12.HeaderText = "Получено- Отпущено";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 125;
+            this.dataGridViewTextBoxColumn12.Width = 137;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -462,6 +469,7 @@
             this.dataGridViewTextBoxColumn13.DataPropertyName = "Date";
             this.dataGridViewTextBoxColumn13.HeaderText = "Дата операции";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 109;
             // 
             // operationsBindingSource
             // 
@@ -618,16 +626,6 @@
             // 
             this.tanksBindingSource1.DataMember = "Tanks";
             this.tanksBindingSource1.DataSource = this.toplivo_DataSet;
-            // 
-            // buttonOpenFormFuel
-            // 
-            this.buttonOpenFormFuel.Location = new System.Drawing.Point(533, 58);
-            this.buttonOpenFormFuel.Name = "buttonOpenFormFuel";
-            this.buttonOpenFormFuel.Size = new System.Drawing.Size(121, 23);
-            this.buttonOpenFormFuel.TabIndex = 4;
-            this.buttonOpenFormFuel.Text = "Выбранное топливо";
-            this.buttonOpenFormFuel.UseVisualStyleBackColor = true;
-            this.buttonOpenFormFuel.Click += new System.EventHandler(this.buttonOpenFormFuel_Click);
             // 
             // Form1
             // 
