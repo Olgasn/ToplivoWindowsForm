@@ -100,7 +100,10 @@ namespace Toplivo1
 
         private void textBoxFindFuelType_TextChanged(object sender, EventArgs e)
         {
-            FilterOperations();
+            string strFilterFuel = "FuelType LIKE '";
+            strFilterFuel = strFilterFuel + textBoxFindFuelType.Text + "%'";
+
+            fuelsBindingSource.Filter = strFilterFuel;
         }
 
        
@@ -148,7 +151,7 @@ namespace Toplivo1
 
         private void buttonOpenFormFuel_Click(object sender, EventArgs e)
         {
-            string strFilterFuel = fuelsDataGridView[0, tanksDataGridView.CurrentRow.Index].Value.ToString();
+            string strFilterFuel = fuelsDataGridView[0, fuelsDataGridView.CurrentRow.Index].Value.ToString();
             
             formfuel = new FormFuel();
             formfuel.fuelsBindingSource.Filter = "FuelID=" + strFilterFuel;
