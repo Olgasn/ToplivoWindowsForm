@@ -14,7 +14,7 @@ USE toplivo
 --DROP TABLE Fuels, Tanks, Operations
 --DROP VIEW View_AllOperations
 CREATE TABLE dbo.Fuels (FuelID int IDENTITY(1,1) NOT NULL PRIMARY KEY, FuelType nvarchar(50), FuelDensity real) -- виды топлива
-CREATE TABLE dbo.Tanks (TankID int IDENTITY(1,1) NOT NULL PRIMARY KEY, TankType nvarchar(20), TankVolume real, TankWeight real, TankMaterial nvarchar(20)) -- емкости
+CREATE TABLE dbo.Tanks (TankID int IDENTITY(1,1) NOT NULL PRIMARY KEY, TankType nvarchar(20), TankVolume real, TankWeight real, TankMaterial nvarchar(20), TankPicture nvarchar(50)) -- емкости
 CREATE TABLE dbo.Operations (OperationID int IDENTITY(1,1) NOT NULL PRIMARY KEY, FuelID int, TankID int, Inc_Exp real, [Date] date) -- операции
 
 

@@ -30,6 +30,8 @@ namespace Toplivo1 {
         
         private TanksDataTable tableTanks;
         
+        private global::System.Data.DataRelation relationFK_Operations_Tanks;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -242,6 +244,7 @@ namespace Toplivo1 {
                     this.tableTanks.InitVars();
                 }
             }
+            this.relationFK_Operations_Tanks = this.Relations["FK_Operations_Tanks"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +261,10 @@ namespace Toplivo1 {
             base.Tables.Add(this.tableOperations);
             this.tableTanks = new TanksDataTable();
             base.Tables.Add(this.tableTanks);
+            this.relationFK_Operations_Tanks = new global::System.Data.DataRelation("FK_Operations_Tanks", new global::System.Data.DataColumn[] {
+                        this.tableTanks.TankIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOperations.TankIDColumn}, false);
+            this.Relations.Add(this.relationFK_Operations_Tanks);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -760,14 +767,17 @@ namespace Toplivo1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OperationsRow AddOperationsRow(int FuelID, int TankID, float Inc_Exp, System.DateTime Date) {
+            public OperationsRow AddOperationsRow(int FuelID, TanksRow parentTanksRowByFK_Operations_Tanks, float Inc_Exp, System.DateTime Date) {
                 OperationsRow rowOperationsRow = ((OperationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         FuelID,
-                        TankID,
+                        null,
                         Inc_Exp,
                         Date};
+                if ((parentTanksRowByFK_Operations_Tanks != null)) {
+                    columnValuesArray[2] = parentTanksRowByFK_Operations_Tanks[0];
+                }
                 rowOperationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOperationsRow);
                 return rowOperationsRow;
@@ -968,6 +978,8 @@ namespace Toplivo1 {
             
             private global::System.Data.DataColumn columnTankMaterial;
             
+            private global::System.Data.DataColumn columnTankPicture;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TanksDataTable() {
@@ -1043,6 +1055,14 @@ namespace Toplivo1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TankPictureColumn {
+                get {
+                    return this.columnTankPicture;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1078,14 +1098,15 @@ namespace Toplivo1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TanksRow AddTanksRow(string TankType, float TankVolume, float TankWeight, string TankMaterial) {
+            public TanksRow AddTanksRow(string TankType, float TankVolume, float TankWeight, string TankMaterial, string TankPicture) {
                 TanksRow rowTanksRow = ((TanksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         TankType,
                         TankVolume,
                         TankWeight,
-                        TankMaterial};
+                        TankMaterial,
+                        TankPicture};
                 rowTanksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTanksRow);
                 return rowTanksRow;
@@ -1120,6 +1141,7 @@ namespace Toplivo1 {
                 this.columnTankVolume = base.Columns["TankVolume"];
                 this.columnTankWeight = base.Columns["TankWeight"];
                 this.columnTankMaterial = base.Columns["TankMaterial"];
+                this.columnTankPicture = base.Columns["TankPicture"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1135,6 +1157,8 @@ namespace Toplivo1 {
                 base.Columns.Add(this.columnTankWeight);
                 this.columnTankMaterial = new global::System.Data.DataColumn("TankMaterial", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTankMaterial);
+                this.columnTankPicture = new global::System.Data.DataColumn("TankPicture", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTankPicture);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTankID}, true));
                 this.columnTankID.AutoIncrement = true;
@@ -1145,6 +1169,7 @@ namespace Toplivo1 {
                 this.columnTankID.Unique = true;
                 this.columnTankType.MaxLength = 20;
                 this.columnTankMaterial.MaxLength = 20;
+                this.columnTankPicture.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1444,6 +1469,17 @@ namespace Toplivo1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TanksRow TanksRow {
+                get {
+                    return ((TanksRow)(this.GetParentRow(this.Table.ParentRelations["FK_Operations_Tanks"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Operations_Tanks"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFuelIDNull() {
                 return this.IsNull(this.tableOperations.FuelIDColumn);
             }
@@ -1582,6 +1618,22 @@ namespace Toplivo1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TankPicture {
+                get {
+                    try {
+                        return ((string)(this[this.tableTanks.TankPictureColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TankPicture\' в таблице \'Tanks\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTanks.TankPictureColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTankTypeNull() {
                 return this.IsNull(this.tableTanks.TankTypeColumn);
             }
@@ -1626,6 +1678,29 @@ namespace Toplivo1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTankMaterialNull() {
                 this[this.tableTanks.TankMaterialColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTankPictureNull() {
+                return this.IsNull(this.tableTanks.TankPictureColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTankPictureNull() {
+                this[this.tableTanks.TankPictureColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OperationsRow[] GetOperationsRows() {
+                if ((this.Table.ChildRelations["FK_Operations_Tanks"] == null)) {
+                    return new OperationsRow[0];
+                }
+                else {
+                    return ((OperationsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Operations_Tanks"])));
+                }
             }
         }
         
@@ -2667,10 +2742,11 @@ SELECT OperationID, FuelID, TankID, Inc_Exp, Date FROM Operations WHERE (Operati
             tableMapping.ColumnMappings.Add("TankVolume", "TankVolume");
             tableMapping.ColumnMappings.Add("TankWeight", "TankWeight");
             tableMapping.ColumnMappings.Add("TankMaterial", "TankMaterial");
+            tableMapping.ColumnMappings.Add("TankPicture", "TankPicture");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Tanks] WHERE (([TankID] = @Original_TankID) AND ((@IsNull_TankType = 1 AND [TankType] IS NULL) OR ([TankType] = @Original_TankType)) AND ((@IsNull_TankVolume = 1 AND [TankVolume] IS NULL) OR ([TankVolume] = @Original_TankVolume)) AND ((@IsNull_TankWeight = 1 AND [TankWeight] IS NULL) OR ([TankWeight] = @Original_TankWeight)) AND ((@IsNull_TankMaterial = 1 AND [TankMaterial] IS NULL) OR ([TankMaterial] = @Original_TankMaterial)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Tanks] WHERE (([TankID] = @Original_TankID) AND ((@IsNull_TankType = 1 AND [TankType] IS NULL) OR ([TankType] = @Original_TankType)) AND ((@IsNull_TankVolume = 1 AND [TankVolume] IS NULL) OR ([TankVolume] = @Original_TankVolume)) AND ((@IsNull_TankWeight = 1 AND [TankWeight] IS NULL) OR ([TankWeight] = @Original_TankWeight)) AND ((@IsNull_TankMaterial = 1 AND [TankMaterial] IS NULL) OR ([TankMaterial] = @Original_TankMaterial)) AND ((@IsNull_TankPicture = 1 AND [TankPicture] IS NULL) OR ([TankPicture] = @Original_TankPicture)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TankID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TankType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankType", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2681,26 +2757,28 @@ SELECT OperationID, FuelID, TankID, Inc_Exp, Date FROM Operations WHERE (Operati
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TankWeight", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankWeight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TankMaterial", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankMaterial", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TankMaterial", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankMaterial", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TankPicture", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankPicture", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TankPicture", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankPicture", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tanks] ([TankType], [TankVolume], [TankWeight], [TankMaterial]" +
-                ") VALUES (@TankType, @TankVolume, @TankWeight, @TankMaterial);\r\nSELECT TankID, T" +
-                "ankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (TankID = SCOPE_I" +
-                "DENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Tanks] ([TankType], [TankVolume], [TankWeight], [TankMaterial], [TankPicture]) VALUES (@TankType, @TankVolume, @TankWeight, @TankMaterial, @TankPicture);
+SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM Tanks WHERE (TankID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankVolume", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankVolume", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankWeight", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankWeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankMaterial", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankMaterial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankPicture", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankPicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tanks] SET [TankType] = @TankType, [TankVolume] = @TankVolume, [TankWeight] = @TankWeight, [TankMaterial] = @TankMaterial WHERE (([TankID] = @Original_TankID) AND ((@IsNull_TankType = 1 AND [TankType] IS NULL) OR ([TankType] = @Original_TankType)) AND ((@IsNull_TankVolume = 1 AND [TankVolume] IS NULL) OR ([TankVolume] = @Original_TankVolume)) AND ((@IsNull_TankWeight = 1 AND [TankWeight] IS NULL) OR ([TankWeight] = @Original_TankWeight)) AND ((@IsNull_TankMaterial = 1 AND [TankMaterial] IS NULL) OR ([TankMaterial] = @Original_TankMaterial)));
-SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (TankID = @TankID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tanks] SET [TankType] = @TankType, [TankVolume] = @TankVolume, [TankWeight] = @TankWeight, [TankMaterial] = @TankMaterial, [TankPicture] = @TankPicture WHERE (([TankID] = @Original_TankID) AND ((@IsNull_TankType = 1 AND [TankType] IS NULL) OR ([TankType] = @Original_TankType)) AND ((@IsNull_TankVolume = 1 AND [TankVolume] IS NULL) OR ([TankVolume] = @Original_TankVolume)) AND ((@IsNull_TankWeight = 1 AND [TankWeight] IS NULL) OR ([TankWeight] = @Original_TankWeight)) AND ((@IsNull_TankMaterial = 1 AND [TankMaterial] IS NULL) OR ([TankMaterial] = @Original_TankMaterial)) AND ((@IsNull_TankPicture = 1 AND [TankPicture] IS NULL) OR ([TankPicture] = @Original_TankPicture)));
+SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM Tanks WHERE (TankID = @TankID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankVolume", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankVolume", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankWeight", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankWeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankMaterial", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankMaterial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankPicture", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankPicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TankID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TankType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankType", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TankType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2710,6 +2788,8 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TankWeight", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankWeight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TankMaterial", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankMaterial", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TankMaterial", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankMaterial", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TankPicture", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankPicture", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TankPicture", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TankPicture", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TankID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TankID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2726,7 +2806,8 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM dbo.Tanks";
+            this._commandCollection[0].CommandText = "SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM d" +
+                "bo.Tanks";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2787,7 +2868,7 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_TankID, string Original_TankType, global::System.Nullable<float> Original_TankVolume, global::System.Nullable<float> Original_TankWeight, string Original_TankMaterial) {
+        public virtual int Delete(int Original_TankID, string Original_TankType, global::System.Nullable<float> Original_TankVolume, global::System.Nullable<float> Original_TankWeight, string Original_TankMaterial, string Original_TankPicture) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_TankID));
             if ((Original_TankType == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -2821,6 +2902,14 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_TankMaterial));
             }
+            if ((Original_TankPicture == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_TankPicture));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2841,7 +2930,7 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string TankType, global::System.Nullable<float> TankVolume, global::System.Nullable<float> TankWeight, string TankMaterial) {
+        public virtual int Insert(string TankType, global::System.Nullable<float> TankVolume, global::System.Nullable<float> TankWeight, string TankMaterial, string TankPicture) {
             if ((TankType == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2866,6 +2955,12 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(TankMaterial));
             }
+            if ((TankPicture == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(TankPicture));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2886,7 +2981,7 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string TankType, global::System.Nullable<float> TankVolume, global::System.Nullable<float> TankWeight, string TankMaterial, int Original_TankID, string Original_TankType, global::System.Nullable<float> Original_TankVolume, global::System.Nullable<float> Original_TankWeight, string Original_TankMaterial, int TankID) {
+        public virtual int Update(string TankType, global::System.Nullable<float> TankVolume, global::System.Nullable<float> TankWeight, string TankMaterial, string TankPicture, int Original_TankID, string Original_TankType, global::System.Nullable<float> Original_TankVolume, global::System.Nullable<float> Original_TankWeight, string Original_TankMaterial, string Original_TankPicture, int TankID) {
             if ((TankType == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2911,40 +3006,54 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(TankMaterial));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_TankID));
-            if ((Original_TankType == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((TankPicture == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_TankType));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(TankPicture));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_TankID));
+            if ((Original_TankType == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_TankType));
             }
             if ((Original_TankVolume.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((float)(Original_TankVolume.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((float)(Original_TankVolume.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_TankWeight.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((float)(Original_TankWeight.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((float)(Original_TankWeight.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_TankMaterial == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_TankMaterial));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_TankMaterial));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(TankID));
+            if ((Original_TankPicture == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_TankPicture));
+            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(TankID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2965,8 +3074,8 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string TankType, global::System.Nullable<float> TankVolume, global::System.Nullable<float> TankWeight, string TankMaterial, int Original_TankID, string Original_TankType, global::System.Nullable<float> Original_TankVolume, global::System.Nullable<float> Original_TankWeight, string Original_TankMaterial) {
-            return this.Update(TankType, TankVolume, TankWeight, TankMaterial, Original_TankID, Original_TankType, Original_TankVolume, Original_TankWeight, Original_TankMaterial, Original_TankID);
+        public virtual int Update(string TankType, global::System.Nullable<float> TankVolume, global::System.Nullable<float> TankWeight, string TankMaterial, string TankPicture, int Original_TankID, string Original_TankType, global::System.Nullable<float> Original_TankVolume, global::System.Nullable<float> Original_TankWeight, string Original_TankMaterial, string Original_TankPicture) {
+            return this.Update(TankType, TankVolume, TankWeight, TankMaterial, TankPicture, Original_TankID, Original_TankType, Original_TankVolume, Original_TankWeight, Original_TankMaterial, Original_TankPicture, Original_TankID);
         }
     }
     
@@ -3109,12 +3218,12 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(Toplivo_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._fuelsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tanksTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._fuelsTableAdapter.Update(updatedRows));
+                    result = (result + this._tanksTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -3127,12 +3236,12 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tanksTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._fuelsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tanksTableAdapter.Update(updatedRows));
+                    result = (result + this._fuelsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -3146,11 +3255,11 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(Toplivo_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._fuelsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tanksTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._fuelsTableAdapter.Update(addedRows));
+                    result = (result + this._tanksTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -3162,11 +3271,11 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tanksTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._fuelsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tanksTableAdapter.Update(addedRows));
+                    result = (result + this._fuelsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -3180,11 +3289,11 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(Toplivo_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tanksTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._fuelsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tanksTableAdapter.Update(deletedRows));
+                    result = (result + this._fuelsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -3196,11 +3305,11 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial FROM Tanks WHERE (
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._fuelsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tanksTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._fuelsTableAdapter.Update(deletedRows));
+                    result = (result + this._tanksTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
