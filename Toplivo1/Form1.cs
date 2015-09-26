@@ -69,6 +69,7 @@ namespace Toplivo1
 
         private void comboBoxTankID_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             FilterOperations();
         }
 
@@ -116,10 +117,13 @@ namespace Toplivo1
 
         private void FilterOperations()
         {
-            string strFilterOperation = "TankID=";
-            strFilterOperation = strFilterOperation + comboBoxTankID.SelectedValue;
+            if (comboBoxTankID.SelectedValue != null)
+            {
+                string strFilterOperation = comboBoxTankID.SelectedValue.ToString();
 
-            operationsBindingSource.Filter = strFilterOperation;
+                strFilterOperation = "TankID=" + strFilterOperation;
+                operationsBindingSource.Filter = strFilterOperation;
+            }
 
         }
 
@@ -147,6 +151,9 @@ namespace Toplivo1
             formtank.tanksBindingSource.Filter = "TankID=" + strFilterTank;
 
             formtank.ShowDialog();
+            this.tanksTableAdapter.Fill(this.toplivo_DataSet.Tanks);
+
+            this.tanksDataGridView.Refresh();
         }
 
         private void buttonOpenFormFuel_Click(object sender, EventArgs e)

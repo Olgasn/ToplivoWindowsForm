@@ -720,9 +720,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Button buttonOpenFormTank;
         private System.Windows.Forms.Button buttonOpenFormFuel;
-        public System.Windows.Forms.BindingSource tanksBindingSource;
-        public System.Windows.Forms.DataGridView tanksDataGridView;
-        public Toplivo_DataSetTableAdapters.TanksTableAdapter tanksTableAdapter;
+        private System.Windows.Forms.BindingSource tanksBindingSource;
+        private System.Windows.Forms.DataGridView tanksDataGridView;
+        private Toplivo_DataSetTableAdapters.TanksTableAdapter tanksTableAdapter;
     }
 }
 

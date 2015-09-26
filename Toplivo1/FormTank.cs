@@ -13,7 +13,6 @@ namespace Toplivo1
 {
     public partial class FormTank : Form
     {
-        Form1 form1;
         private string strPictureDir="/TankPictures/";
         public FormTank()
         {
