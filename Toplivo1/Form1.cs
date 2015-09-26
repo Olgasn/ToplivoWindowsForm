@@ -158,6 +158,10 @@ namespace Toplivo1
 
             formfuel.ShowDialog();
         }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+        }
         
         
     }

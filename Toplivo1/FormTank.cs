@@ -13,8 +13,8 @@ namespace Toplivo1
 {
     public partial class FormTank : Form
     {
-
-        private string strPictureDir="\\TankPictures\\";
+        Form1 form1;
+        private string strPictureDir="/TankPictures/";
         public FormTank()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace Toplivo1
             this.tanksTableAdapter.Fill(this.toplivo_DataSet.Tanks);
             string strPicturePath = tankPictureTextBox.Text.ToString();
             //Считывание изображения из каталога strPictureDir и отображение его на форме
-            strPicturePath = Directory.GetCurrentDirectory() + strPictureDir + strPicturePath;
+            strPicturePath = Directory.GetCurrentDirectory() + strPicturePath;
             if (File.Exists(strPicturePath))
             {
                 TankPictureBox.Image = Image.FromFile(strPicturePath);
@@ -45,21 +45,19 @@ namespace Toplivo1
 
         private void FormTank_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+         
         }
 
         private void UploadPictureButton_Click(object sender, EventArgs e)
         {
-            //Выбор файла
             string strPicturePath = strPictureDir + tankIDTextBox.Text.ToString() + ".jpg";
             string strPictureFullPath = Directory.GetCurrentDirectory() + strPicturePath;
 
-
+            //Выбор файла для изображения
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
             openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
             openFileDialog1.Filter = "файлы изображений (*.jpg)|*.jpg";
-            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
             openFileDialog1.ShowDialog();
             string strFileName = openFileDialog1.FileName ;
@@ -69,28 +67,27 @@ namespace Toplivo1
             try
                 {
                     File.Copy(strFileName, strPictureFullPath, true);
+
+                    //Запись пути к файлу в соответсвующую таблицу базы данных
+                    tankPictureTextBox.Text = strPicturePath;
+                    tanksBindingSource.EndEdit();
+                    tanksTableAdapter.Update(toplivo_DataSet.Tanks);
+
+                    //Отображение в элементе PictureBox
+                    if (File.Exists(strPictureFullPath)) TankPictureBox.Image = Image.FromFile(strPictureFullPath);
+
                 }
 
-            // Catch exception if the file was already copied.
+            // Обработка ошибки копирования
             catch (IOException copyError)
                 {
-                    Console.WriteLine(copyError.Message);
+                    System.Windows.Forms.MessageBox.Show(copyError.Message);
+                
                 }
-            
-            
-            
-            
             
             }
             
-            //Запись пути к файлу в соответсвующую таблицу базы данных
-            tankPictureTextBox.Text = tankIDTextBox.Text.ToString() + ".jpg";
-            tanksBindingSource.EndEdit();
-            //tanksTableAdapter.Update(toplivo_DataSet);
-            //Отображение в элементе PictureBox
-            if (File.Exists(strPictureFullPath))
-                TankPictureBox.Image = Image.FromFile(strPictureFullPath);
-
+ 
         }
 
         

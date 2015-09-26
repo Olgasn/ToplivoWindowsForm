@@ -638,6 +638,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Топливная база";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -670,8 +671,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.BindingSource tanksBindingSource;
-        private Toplivo_DataSetTableAdapters.TanksTableAdapter tanksTableAdapter;
         private Toplivo_DataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator BindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
@@ -686,7 +685,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton tanksBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView tanksDataGridView;
         private Toplivo_DataSetTableAdapters.FuelsTableAdapter fuelsTableAdapter;
         private System.Windows.Forms.BindingSource fuelsBindingSource;
         private System.Windows.Forms.DataGridView fuelsDataGridView;
@@ -722,6 +720,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Button buttonOpenFormTank;
         private System.Windows.Forms.Button buttonOpenFormFuel;
+        public System.Windows.Forms.BindingSource tanksBindingSource;
+        public System.Windows.Forms.DataGridView tanksDataGridView;
+        public Toplivo_DataSetTableAdapters.TanksTableAdapter tanksTableAdapter;
     }
 }
 

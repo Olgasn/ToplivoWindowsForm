@@ -295,10 +295,11 @@
             // 
             // TankPictureBox
             // 
+            this.TankPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.TankPictureBox.Location = new System.Drawing.Point(280, 11);
-            this.TankPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TankPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.TankPictureBox.Name = "TankPictureBox";
-            this.TankPictureBox.Size = new System.Drawing.Size(371, 224);
+            this.TankPictureBox.Size = new System.Drawing.Size(371, 223);
             this.TankPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.TankPictureBox.TabIndex = 11;
             this.TankPictureBox.TabStop = false;
@@ -318,7 +319,7 @@
             // UploadPictureButton
             // 
             this.UploadPictureButton.Location = new System.Drawing.Point(280, 239);
-            this.UploadPictureButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UploadPictureButton.Margin = new System.Windows.Forms.Padding(2);
             this.UploadPictureButton.Name = "UploadPictureButton";
             this.UploadPictureButton.Size = new System.Drawing.Size(158, 24);
             this.UploadPictureButton.TabIndex = 12;
@@ -328,11 +329,12 @@
             // 
             // tankPictureTextBox
             // 
+            this.tankPictureTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.tankPictureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankPicture", true));
             this.tankPictureTextBox.Enabled = false;
-            this.tankPictureTextBox.Location = new System.Drawing.Point(499, 240);
+            this.tankPictureTextBox.Location = new System.Drawing.Point(443, 243);
             this.tankPictureTextBox.Name = "tankPictureTextBox";
-            this.tankPictureTextBox.Size = new System.Drawing.Size(152, 20);
+            this.tankPictureTextBox.Size = new System.Drawing.Size(208, 20);
             this.tankPictureTextBox.TabIndex = 14;
             // 
             // FormTank

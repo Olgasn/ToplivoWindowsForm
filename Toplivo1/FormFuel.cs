@@ -38,7 +38,7 @@ namespace Toplivo1
             DataRelation relation = new DataRelation("FuelsOperations",
                 toplivo_DataSet.Tables["Fuels"].Columns["FuelID"],
                 toplivo_DataSet.Tables["Operations"].Columns["FuelID"]);
-            toplivo_DataSet.Relations.Add(relation);
+                toplivo_DataSet.Relations.Add(relation);
 
             
             // Bind the details data connector to the master data connector,
