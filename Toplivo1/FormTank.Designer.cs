@@ -37,6 +37,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTank));
             this.tanksBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.tanksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toplivo_DataSet = new Toplivo1.Toplivo_DataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -54,10 +56,9 @@
             this.tankWeightTextBox = new System.Windows.Forms.TextBox();
             this.tankMaterialTextBox = new System.Windows.Forms.TextBox();
             this.TankPictureBox = new System.Windows.Forms.PictureBox();
-            this.tanksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toplivo_DataSet = new Toplivo1.Toplivo_DataSet();
             this.tanksTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.TanksTableAdapter();
             this.tableAdapterManager = new Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager();
+            this.UploadPictureButton = new System.Windows.Forms.Button();
             tankIDLabel = new System.Windows.Forms.Label();
             tankTypeLabel = new System.Windows.Forms.Label();
             tankVolumeLabel = new System.Windows.Forms.Label();
@@ -65,9 +66,9 @@
             tankMaterialLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tanksBindingNavigator)).BeginInit();
             this.tanksBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TankPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tanksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toplivo_DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TankPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tankIDLabel
@@ -161,6 +162,16 @@
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
             // 
+            // tanksBindingSource
+            // 
+            this.tanksBindingSource.DataMember = "Tanks";
+            this.tanksBindingSource.DataSource = this.toplivo_DataSet;
+            // 
+            // toplivo_DataSet
+            // 
+            this.toplivo_DataSet.DataSetName = "Toplivo_DataSet";
+            this.toplivo_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
@@ -250,7 +261,7 @@
             // 
             this.tankIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankID", true));
             this.tankIDTextBox.Location = new System.Drawing.Point(204, 73);
-            this.tankIDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tankIDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tankIDTextBox.Name = "tankIDTextBox";
             this.tankIDTextBox.Size = new System.Drawing.Size(201, 22);
             this.tankIDTextBox.TabIndex = 2;
@@ -259,7 +270,7 @@
             // 
             this.tankTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankType", true));
             this.tankTypeTextBox.Location = new System.Drawing.Point(204, 105);
-            this.tankTypeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tankTypeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tankTypeTextBox.Name = "tankTypeTextBox";
             this.tankTypeTextBox.Size = new System.Drawing.Size(201, 22);
             this.tankTypeTextBox.TabIndex = 4;
@@ -268,7 +279,7 @@
             // 
             this.tankVolumeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankVolume", true));
             this.tankVolumeTextBox.Location = new System.Drawing.Point(204, 137);
-            this.tankVolumeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tankVolumeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tankVolumeTextBox.Name = "tankVolumeTextBox";
             this.tankVolumeTextBox.Size = new System.Drawing.Size(201, 22);
             this.tankVolumeTextBox.TabIndex = 6;
@@ -277,7 +288,7 @@
             // 
             this.tankWeightTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankWeight", true));
             this.tankWeightTextBox.Location = new System.Drawing.Point(204, 169);
-            this.tankWeightTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tankWeightTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tankWeightTextBox.Name = "tankWeightTextBox";
             this.tankWeightTextBox.Size = new System.Drawing.Size(201, 22);
             this.tankWeightTextBox.TabIndex = 8;
@@ -286,7 +297,7 @@
             // 
             this.tankMaterialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankMaterial", true));
             this.tankMaterialTextBox.Location = new System.Drawing.Point(204, 201);
-            this.tankMaterialTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tankMaterialTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tankMaterialTextBox.Name = "tankMaterialTextBox";
             this.tankMaterialTextBox.Size = new System.Drawing.Size(201, 22);
             this.tankMaterialTextBox.TabIndex = 10;
@@ -300,16 +311,6 @@
             this.TankPictureBox.TabIndex = 11;
             this.TankPictureBox.TabStop = false;
             // 
-            // tanksBindingSource
-            // 
-            this.tanksBindingSource.DataMember = "Tanks";
-            this.tanksBindingSource.DataSource = this.toplivo_DataSet;
-            // 
-            // toplivo_DataSet
-            // 
-            this.toplivo_DataSet.DataSetName = "Toplivo_DataSet";
-            this.toplivo_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tanksTableAdapter
             // 
             this.tanksTableAdapter.ClearBeforeFill = true;
@@ -322,11 +323,22 @@
             this.tableAdapterManager.TanksTableAdapter = this.tanksTableAdapter;
             this.tableAdapterManager.UpdateOrder = Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // UploadPictureButton
+            // 
+            this.UploadPictureButton.Location = new System.Drawing.Point(517, 230);
+            this.UploadPictureButton.Name = "UploadPictureButton";
+            this.UploadPictureButton.Size = new System.Drawing.Size(210, 29);
+            this.UploadPictureButton.TabIndex = 12;
+            this.UploadPictureButton.Text = "Загрузить изображение";
+            this.UploadPictureButton.UseVisualStyleBackColor = true;
+            this.UploadPictureButton.Click += new System.EventHandler(this.UploadPictureButton_Click);
+            // 
             // FormTank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 322);
+            this.Controls.Add(this.UploadPictureButton);
             this.Controls.Add(this.TankPictureBox);
             this.Controls.Add(tankIDLabel);
             this.Controls.Add(this.tankIDTextBox);
@@ -339,7 +351,7 @@
             this.Controls.Add(tankMaterialLabel);
             this.Controls.Add(this.tankMaterialTextBox);
             this.Controls.Add(this.tanksBindingNavigator);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTank";
             this.Text = "Емкость";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTank_FormClosing);
@@ -347,9 +359,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tanksBindingNavigator)).EndInit();
             this.tanksBindingNavigator.ResumeLayout(false);
             this.tanksBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TankPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tanksBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toplivo_DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TankPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,5 +392,6 @@
         private System.Windows.Forms.TextBox tankMaterialTextBox;
         protected internal System.Windows.Forms.BindingSource tanksBindingSource;
         private System.Windows.Forms.PictureBox TankPictureBox;
+        private System.Windows.Forms.Button UploadPictureButton;
     }
 }

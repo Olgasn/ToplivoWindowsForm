@@ -48,6 +48,14 @@ namespace Toplivo1
             
         }
 
+        private void UploadPictureButton_Click(object sender, EventArgs e)
+        {
+            //Выбор файла 
+            //Копирование в нужный каталог
+            //Запись пути к файлу в соответсвующую таблицу базы данных
+            //Отображение в элементе PictureBox
+        }
+
         
     }
 }
