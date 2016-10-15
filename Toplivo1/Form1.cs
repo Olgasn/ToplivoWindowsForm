@@ -100,19 +100,26 @@ namespace Toplivo1
             fuelsBindingSource.Filter = strFilterFuel;
         }
 
-       
-
-  
-
+ 
         private void FilterOperations()
         {
-            if (comboBoxTankID.SelectedValue != null)
-            {
-                string strFilterOperation = comboBoxTankID.SelectedValue.ToString();
+            string strFilterOperations = "";
+            string strFilterFuel = "";
+            string strFilterTank = "";
 
-                strFilterOperation = "TankID=" + strFilterOperation;
-                operationsBindingSource.Filter = strFilterOperation;
+            if (comboBoxTankID.SelectedValue != null & !checkBoxAllTanks.Checked)
+            {
+                strFilterFuel = comboBoxTankID.SelectedValue.ToString();
+                strFilterFuel = "TankID=" + strFilterFuel;
             }
+            if (comboBoxFuelID.SelectedValue != null & !checkBoxAllFuels.Checked)
+            {
+                if (strFilterFuel != "") strFilterFuel += " AND ";
+                strFilterTank = comboBoxFuelID.SelectedValue.ToString();
+                strFilterTank = "FuelID=" + strFilterTank;
+            }
+            strFilterOperations = strFilterFuel + strFilterTank;
+            operationsBindingSource.Filter = strFilterOperations;
 
         }
 
