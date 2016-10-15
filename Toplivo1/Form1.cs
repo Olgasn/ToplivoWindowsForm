@@ -102,11 +102,7 @@ namespace Toplivo1
 
        
 
-        private void checkBoxAll_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
+  
 
         private void FilterOperations()
         {
@@ -120,17 +116,37 @@ namespace Toplivo1
 
         }
 
-        private void checkBoxAll_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxAllTanks_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxAll.Checked)
+            if (checkBoxAllTanks.Checked)
             {
                 comboBoxTankID.Enabled = false;
+                operationsDataGridView.Columns["TankID"].Visible = true;
                 operationsBindingSource.RemoveFilter();
 
             }
             else
             {
                 comboBoxTankID.Enabled = true;
+                operationsDataGridView.Columns["TankID"].Visible = false;
+                FilterOperations();
+                this.Update();
+            }
+        }
+
+        private void checkBoxAllFuels_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAllFuels.Checked)
+            {
+                comboBoxFuelID.Enabled = false;
+                operationsDataGridView.Columns["FuelID"].Visible = true;
+                operationsBindingSource.RemoveFilter();
+
+            }
+            else
+            {
+                comboBoxFuelID.Enabled = true;
+                operationsDataGridView.Columns["FuelID"].Visible = false;
                 FilterOperations();
                 this.Update();
             }
@@ -148,7 +164,7 @@ namespace Toplivo1
 
             this.tanksDataGridView.Refresh();
         }
-
+        
         private void buttonOpenFormFuel_Click(object sender, EventArgs e)
         {
             string strFilterFuel = fuelsDataGridView[0, fuelsDataGridView.CurrentRow.Index].Value.ToString();
@@ -162,7 +178,7 @@ namespace Toplivo1
         private void Form1_Activated(object sender, EventArgs e)
         {
         }
-        
+
         
     }
 }
