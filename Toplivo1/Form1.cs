@@ -20,25 +20,25 @@ namespace Toplivo1
         private void BindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
 
-            this.Validate();
+            Validate();
 
-            switch (this.tabControl1.SelectedIndex)
+            switch (tabControl1.SelectedIndex)
             {
 
                 case 0:
-                    this.tanksBindingSource.EndEdit();
+                    tanksBindingSource.EndEdit();
                     break;
                 case 1:
-                    this.fuelsBindingSource.EndEdit();
+                    fuelsBindingSource.EndEdit();
                     break;
                 case 2:
-                    this.operationsBindingSource.EndEdit();
+                    operationsBindingSource.EndEdit();
                     break;
 
             }
-                
 
-            this.tableAdapterManager.UpdateAll(this.toplivo_DataSet);
+
+            tableAdapterManager.UpdateAll(toplivo_DataSet);
 
             
             
@@ -48,35 +48,33 @@ namespace Toplivo1
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "toplivo_DataSet.Operations". При необходимости она может быть перемещена или удалена.
-            this.operationsTableAdapter.Fill(this.toplivo_DataSet.Operations);
+            operationsTableAdapter.Fill(toplivo_DataSet.Operations);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "toplivo_DataSet.Fuels". При необходимости она может быть перемещена или удалена.
-            this.fuelsTableAdapter.Fill(this.toplivo_DataSet.Fuels);
+            fuelsTableAdapter.Fill(toplivo_DataSet.Fuels);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "toplivo_DataSet.Tanks". При необходимости она может быть перемещена или удалена.
-            this.tanksTableAdapter.Fill(this.toplivo_DataSet.Tanks);
+            tanksTableAdapter.Fill(toplivo_DataSet.Tanks);
 
         }
-
-
 
 
 
         private void comboBoxTankID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+        
             FilterOperations();
         }
 
         private void textBoxFindTankType_TextChanged(object sender, EventArgs e)
         {
-            string strFilterTank = "TankType LIKE '";
-            strFilterTank = strFilterTank + textBoxFindTankType.Text + "%'";
+            string strFilterTankType = "TankType LIKE '";
+            strFilterTankType = strFilterTankType + textBoxFindTankType.Text + "%'";
 
-            tanksBindingSource.Filter = strFilterTank;
+            tanksBindingSource.Filter = strFilterTankType;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (this.tabControl1.SelectedIndex)
+            switch (tabControl1.SelectedIndex)
             {
 
                 case 0:
@@ -94,31 +92,38 @@ namespace Toplivo1
 
         private void textBoxFindFuelType_TextChanged(object sender, EventArgs e)
         {
-            string strFilterFuel = "FuelType LIKE '";
-            strFilterFuel = strFilterFuel + textBoxFindFuelType.Text + "%'";
+            string strFilterFuelType = "FuelType LIKE '";
+            strFilterFuelType = strFilterFuelType + textBoxFindFuelType.Text + "%'";
 
-            fuelsBindingSource.Filter = strFilterFuel;
+            fuelsBindingSource.Filter = strFilterFuelType;
         }
 
  
         private void FilterOperations()
         {
             string strFilterOperations = "";
-            string strFilterFuel = "";
-            string strFilterTank = "";
+            string strFilterFuelID = "";
+            string strFilterTankID = "";
+
 
             if (comboBoxTankID.SelectedValue != null & !checkBoxAllTanks.Checked)
             {
-                strFilterFuel = comboBoxTankID.SelectedValue.ToString();
-                strFilterFuel = "TankID=" + strFilterFuel;
+                strFilterTankID = comboBoxTankID.SelectedValue.ToString();
+                strFilterTankID = "TankID=" + strFilterTankID;
             }
             if (comboBoxFuelID.SelectedValue != null & !checkBoxAllFuels.Checked)
             {
-                if (strFilterFuel != "") strFilterFuel += " AND ";
-                strFilterTank = comboBoxFuelID.SelectedValue.ToString();
-                strFilterTank = "FuelID=" + strFilterTank;
+                strFilterFuelID = comboBoxFuelID.SelectedValue.ToString();
+                strFilterFuelID = "FuelID=" + strFilterFuelID;
             }
-            strFilterOperations = strFilterFuel + strFilterTank;
+
+
+            strFilterOperations = strFilterFuelID;
+            if (strFilterOperations != "")
+                strFilterOperations = strFilterOperations+ " AND " + strFilterTankID;
+            else
+                strFilterOperations +=  strFilterTankID;
+
             operationsBindingSource.Filter = strFilterOperations;
 
         }
@@ -130,14 +135,12 @@ namespace Toplivo1
                 comboBoxTankID.Enabled = false;
                 operationsDataGridView.Columns["TankID"].Visible = true;
                 operationsBindingSource.RemoveFilter();
-
             }
             else
             {
                 comboBoxTankID.Enabled = true;
                 operationsDataGridView.Columns["TankID"].Visible = false;
                 FilterOperations();
-                this.Update();
             }
         }
 
@@ -148,44 +151,42 @@ namespace Toplivo1
                 comboBoxFuelID.Enabled = false;
                 operationsDataGridView.Columns["FuelID"].Visible = true;
                 operationsBindingSource.RemoveFilter();
-
             }
             else
             {
                 comboBoxFuelID.Enabled = true;
                 operationsDataGridView.Columns["FuelID"].Visible = false;
                 FilterOperations();
-                this.Update();
             }
         }
 
         private void buttonOpenFormTank_Click(object sender, EventArgs e)
         {
 
-            string strFilterTank = tanksDataGridView[0, tanksDataGridView.CurrentRow.Index].Value.ToString();
+            string strFilterTankID = tanksDataGridView[0, tanksDataGridView.CurrentRow.Index].Value.ToString();
+
             formtank = new FormTank();
-            formtank.tanksBindingSource.Filter = "TankID=" + strFilterTank;
+            formtank.tanksBindingSource.Filter = "TankID=" + strFilterTankID;
 
             formtank.ShowDialog();
-            this.tanksTableAdapter.Fill(this.toplivo_DataSet.Tanks);
+            tanksTableAdapter.Fill(toplivo_DataSet.Tanks);
 
-            this.tanksDataGridView.Refresh();
+            tanksDataGridView.Refresh();
         }
         
         private void buttonOpenFormFuel_Click(object sender, EventArgs e)
         {
-            string strFilterFuel = fuelsDataGridView[0, fuelsDataGridView.CurrentRow.Index].Value.ToString();
+            string strFilterFuelID = fuelsDataGridView[0, fuelsDataGridView.CurrentRow.Index].Value.ToString();
             
             formfuel = new FormFuel();
-            formfuel.fuelsBindingSource.Filter = "FuelID=" + strFilterFuel;
+            formfuel.fuelsBindingSource.Filter = "FuelID=" + strFilterFuelID;
 
             formfuel.ShowDialog();
-        }
+        }   
 
-        private void Form1_Activated(object sender, EventArgs e)
+        private void comboBoxFuelID_SelectedIndexChanged(object sender, EventArgs e)
         {
+            FilterOperations();
         }
-
-        
     }
 }
