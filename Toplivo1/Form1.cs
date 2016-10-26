@@ -119,10 +119,10 @@ namespace Toplivo1
 
 
             strFilterOperations = strFilterFuelID;
-            if (strFilterOperations != "")
+            if (strFilterFuelID != "" & strFilterTankID != "")
                 strFilterOperations = strFilterOperations+ " AND " + strFilterTankID;
-            else
-                strFilterOperations +=  strFilterTankID;
+            else if (strFilterTankID != "")
+                strFilterOperations =  strFilterTankID;
 
             operationsBindingSource.Filter = strFilterOperations;
 
