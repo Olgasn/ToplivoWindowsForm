@@ -14,18 +14,18 @@ namespace Toplivo1
 
         private void fuelsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.fuelsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.toplivo_DataSet);
+            Validate();
+            fuelsBindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(toplivo_DataSet);
 
         }
 
         private void FormFuel_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "toplivo_DataSet.Operations". При необходимости она может быть перемещена или удалена.
-            this.operationsTableAdapter.Fill(this.toplivo_DataSet.Operations);
+            operationsTableAdapter.Fill(toplivo_DataSet.Operations);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "toplivo_DataSet.Fuels". При необходимости она может быть перемещена или удалена.
-            this.fuelsTableAdapter.Fill(this.toplivo_DataSet.Fuels);
+            fuelsTableAdapter.Fill(toplivo_DataSet.Fuels);
 
 
             //Установить связь между двумя таблицами
@@ -52,7 +52,7 @@ namespace Toplivo1
         {
             try
             {
-                this.operationsTableAdapter.FillBy(this.toplivo_DataSet.Operations);
+                operationsTableAdapter.FillBy(toplivo_DataSet.Operations);
             }
             catch (System.Exception ex)
             {

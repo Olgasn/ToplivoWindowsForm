@@ -15,16 +15,16 @@ namespace Toplivo1
 
         private void tanksBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.tanksBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.toplivo_DataSet);
+            Validate();
+            tanksBindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(toplivo_DataSet);
 
         }
 
         private void FormTank_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "toplivo_DataSet.Tanks". При необходимости она может быть перемещена или удалена.
-            this.tanksTableAdapter.Fill(this.toplivo_DataSet.Tanks);
+            tanksTableAdapter.Fill(toplivo_DataSet.Tanks);
             string strPicturePath = tankPictureTextBox.Text.ToString();
             //Считывание изображения из каталога strPictureDir и отображение его на форме
             strPicturePath = Directory.GetCurrentDirectory() + strPicturePath;
