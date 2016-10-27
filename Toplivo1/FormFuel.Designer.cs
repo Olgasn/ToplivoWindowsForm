@@ -361,7 +361,6 @@
             this.Controls.Add(this.fuelsBindingNavigator);
             this.Name = "FormFuel";
             this.Text = "Топливо";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormFuel_FormClosing);
             this.Load += new System.EventHandler(this.FormFuel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.toplivo_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelsBindingSource)).EndInit();

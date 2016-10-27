@@ -43,16 +43,12 @@ namespace Toplivo1
 
         }
 
-        private void FormFuel_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
-
+ 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
-                operationsTableAdapter.FillBy(toplivo_DataSet.Operations);
+                operationsTableAdapter.Fill(toplivo_DataSet.Operations);
             }
             catch (System.Exception ex)
             {
