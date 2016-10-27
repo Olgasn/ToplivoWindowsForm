@@ -120,7 +120,7 @@
             this.tableAdapterManager.FuelsTableAdapter = this.fuelsTableAdapter;
             this.tableAdapterManager.OperationsTableAdapter = null;
             this.tableAdapterManager.TanksTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Toplivo_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // fuelsBindingNavigator
             // 
