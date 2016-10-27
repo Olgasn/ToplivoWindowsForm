@@ -30,8 +30,6 @@ namespace Toplivo {
         
         private TanksDataTable tableTanks;
         
-        private global::System.Data.DataRelation relationFK_Operations_Tanks;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -244,7 +242,6 @@ namespace Toplivo {
                     this.tableTanks.InitVars();
                 }
             }
-            this.relationFK_Operations_Tanks = this.Relations["FK_Operations_Tanks"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -261,10 +258,6 @@ namespace Toplivo {
             base.Tables.Add(this.tableOperations);
             this.tableTanks = new TanksDataTable();
             base.Tables.Add(this.tableTanks);
-            this.relationFK_Operations_Tanks = new global::System.Data.DataRelation("FK_Operations_Tanks", new global::System.Data.DataColumn[] {
-                        this.tableTanks.TankIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOperations.TankIDColumn}, false);
-            this.Relations.Add(this.relationFK_Operations_Tanks);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -767,17 +760,14 @@ namespace Toplivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OperationsRow AddOperationsRow(int FuelID, TanksRow parentTanksRowByFK_Operations_Tanks, float Inc_Exp, System.DateTime Date) {
+            public OperationsRow AddOperationsRow(int FuelID, int TankID, float Inc_Exp, System.DateTime Date) {
                 OperationsRow rowOperationsRow = ((OperationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         FuelID,
-                        null,
+                        TankID,
                         Inc_Exp,
                         Date};
-                if ((parentTanksRowByFK_Operations_Tanks != null)) {
-                    columnValuesArray[2] = parentTanksRowByFK_Operations_Tanks[0];
-                }
                 rowOperationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOperationsRow);
                 return rowOperationsRow;
@@ -1469,17 +1459,6 @@ namespace Toplivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TanksRow TanksRow {
-                get {
-                    return ((TanksRow)(this.GetParentRow(this.Table.ParentRelations["FK_Operations_Tanks"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Operations_Tanks"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFuelIDNull() {
                 return this.IsNull(this.tableOperations.FuelIDColumn);
             }
@@ -1690,17 +1669,6 @@ namespace Toplivo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTankPictureNull() {
                 this[this.tableTanks.TankPictureColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OperationsRow[] GetOperationsRows() {
-                if ((this.Table.ChildRelations["FK_Operations_Tanks"] == null)) {
-                    return new OperationsRow[0];
-                }
-                else {
-                    return ((OperationsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Operations_Tanks"])));
-                }
             }
         }
         
@@ -3201,12 +3169,12 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(Toplivo_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tanksTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._fuelsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tanksTableAdapter.Update(updatedRows));
+                    result = (result + this._fuelsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -3219,12 +3187,12 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._fuelsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tanksTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._fuelsTableAdapter.Update(updatedRows));
+                    result = (result + this._tanksTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -3238,11 +3206,11 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(Toplivo_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tanksTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._fuelsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tanksTableAdapter.Update(addedRows));
+                    result = (result + this._fuelsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -3254,11 +3222,11 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._fuelsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tanksTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._fuelsTableAdapter.Update(addedRows));
+                    result = (result + this._tanksTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -3272,11 +3240,11 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(Toplivo_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._fuelsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tanksTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._fuelsTableAdapter.Update(deletedRows));
+                    result = (result + this._tanksTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -3288,11 +3256,11 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tanksTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tanks.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._fuelsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Fuels.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tanksTableAdapter.Update(deletedRows));
+                    result = (result + this._fuelsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
