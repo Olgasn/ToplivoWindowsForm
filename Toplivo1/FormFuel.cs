@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 
-namespace Toplivo1
+namespace Toplivo
 {
     public partial class FormFuel : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace Toplivo1
+﻿namespace Toplivo
 {
     partial class Form1
     {
@@ -43,7 +43,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tanksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toplivo_DataSet = new Toplivo1.Toplivo_DataSet();
+            this.toplivo_DataSet = new Toplivo.Toplivo_DataSet();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.buttonOpenFormFuel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -72,10 +72,10 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.operationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tanksTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.TanksTableAdapter();
-            this.tableAdapterManager = new Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager();
-            this.fuelsTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.FuelsTableAdapter();
-            this.operationsTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.OperationsTableAdapter();
+            this.tanksTableAdapter = new Toplivo.Toplivo_DataSetTableAdapters.TanksTableAdapter();
+            this.tableAdapterManager = new Toplivo.Toplivo_DataSetTableAdapters.TableAdapterManager();
+            this.fuelsTableAdapter = new Toplivo.Toplivo_DataSetTableAdapters.FuelsTableAdapter();
+            this.operationsTableAdapter = new Toplivo.Toplivo_DataSetTableAdapters.OperationsTableAdapter();
             this.BindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -535,7 +535,7 @@
             this.tableAdapterManager.FuelsTableAdapter = this.fuelsTableAdapter;
             this.tableAdapterManager.OperationsTableAdapter = this.operationsTableAdapter;
             this.tableAdapterManager.TanksTableAdapter = this.tanksTableAdapter;
-            this.tableAdapterManager.UpdateOrder = Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Toplivo.Toplivo_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // fuelsTableAdapter
             // 

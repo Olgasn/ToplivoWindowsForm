@@ -7,8 +7,8 @@
     <ProjectGuid>{06BDD110-78AD-4D03-821A-81A9C0555B28}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Toplivo1</RootNamespace>
-    <AssemblyName>Toplivo1</AssemblyName>
+    <RootNamespace>Toplivo</RootNamespace>
+    <AssemblyName>ToplivoWindowsForm</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
@@ -101,6 +101,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

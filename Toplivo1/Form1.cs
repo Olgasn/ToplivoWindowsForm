@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Toplivo1
+namespace Toplivo
 {
     public partial class Form1 : Form
     {

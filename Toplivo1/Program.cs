@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Toplivo1
+namespace Toplivo
 {
     static class Program
     {

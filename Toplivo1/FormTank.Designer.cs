@@ -1,4 +1,4 @@
-﻿namespace Toplivo1
+﻿namespace Toplivo
 {
     partial class FormTank
     {
@@ -38,7 +38,7 @@
             this.tanksBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.tanksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toplivo_DataSet = new Toplivo1.Toplivo_DataSet();
+            this.toplivo_DataSet = new Toplivo.Toplivo_DataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -56,8 +56,8 @@
             this.tankWeightTextBox = new System.Windows.Forms.TextBox();
             this.tankMaterialTextBox = new System.Windows.Forms.TextBox();
             this.TankPictureBox = new System.Windows.Forms.PictureBox();
-            this.tanksTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.TanksTableAdapter();
-            this.tableAdapterManager = new Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager();
+            this.tanksTableAdapter = new Toplivo.Toplivo_DataSetTableAdapters.TanksTableAdapter();
+            this.tableAdapterManager = new Toplivo.Toplivo_DataSetTableAdapters.TableAdapterManager();
             this.UploadPictureButton = new System.Windows.Forms.Button();
             this.tankPictureTextBox = new System.Windows.Forms.TextBox();
             tankIDLabel = new System.Windows.Forms.Label();
@@ -314,7 +314,7 @@
             this.tableAdapterManager.FuelsTableAdapter = null;
             this.tableAdapterManager.OperationsTableAdapter = null;
             this.tableAdapterManager.TanksTableAdapter = this.tanksTableAdapter;
-            this.tableAdapterManager.UpdateOrder = Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Toplivo.Toplivo_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // UploadPictureButton
             // 

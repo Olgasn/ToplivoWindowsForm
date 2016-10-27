@@ -1,4 +1,4 @@
-﻿namespace Toplivo1
+﻿namespace Toplivo
 {
     partial class FormFuel
     {
@@ -33,10 +33,10 @@
             System.Windows.Forms.Label fuelTypeLabel;
             System.Windows.Forms.Label fuelDensityLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFuel));
-            this.toplivo_DataSet = new Toplivo1.Toplivo_DataSet();
+            this.toplivo_DataSet = new Toplivo.Toplivo_DataSet();
             this.fuelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fuelsTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.FuelsTableAdapter();
-            this.tableAdapterManager = new Toplivo1.Toplivo_DataSetTableAdapters.TableAdapterManager();
+            this.fuelsTableAdapter = new Toplivo.Toplivo_DataSetTableAdapters.FuelsTableAdapter();
+            this.tableAdapterManager = new Toplivo.Toplivo_DataSetTableAdapters.TableAdapterManager();
             this.fuelsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -53,7 +53,7 @@
             this.fuelIDTextBox = new System.Windows.Forms.TextBox();
             this.fuelTypeTextBox = new System.Windows.Forms.TextBox();
             this.fuelDensityTextBox = new System.Windows.Forms.TextBox();
-            this.operationsTableAdapter = new Toplivo1.Toplivo_DataSetTableAdapters.OperationsTableAdapter();
+            this.operationsTableAdapter = new Toplivo.Toplivo_DataSetTableAdapters.OperationsTableAdapter();
             this.operationsDataGridView = new System.Windows.Forms.DataGridView();
             this.operationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();

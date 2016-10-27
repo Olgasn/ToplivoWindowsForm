@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Toplivo1
+namespace Toplivo
 {
     public partial class FormTank : Form
     {

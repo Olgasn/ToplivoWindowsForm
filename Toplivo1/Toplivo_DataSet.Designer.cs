@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Toplivo1 {
+namespace Toplivo {
     
     
     /// <summary>
@@ -1807,7 +1807,7 @@ namespace Toplivo1 {
         }
     }
 }
-namespace Toplivo1.Toplivo_DataSetTableAdapters {
+namespace Toplivo.Toplivo_DataSetTableAdapters {
     
     
     /// <summary>
@@ -1974,7 +1974,7 @@ SELECT FuelID, FuelType, FuelDensity FROM Fuels WHERE (FuelID = @FuelID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Toplivo1.Properties.Settings.Default.Toplivo_ConnectionString;
+            this._connection.ConnectionString = global::Toplivo.Properties.Settings.Default.Toplivo_ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2346,7 +2346,7 @@ SELECT OperationID, FuelID, TankID, Inc_Exp, Date FROM Operations WHERE (Operati
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Toplivo1.Properties.Settings.Default.Toplivo_ConnectionString;
+            this._connection.ConnectionString = global::Toplivo.Properties.Settings.Default.Toplivo_ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2780,7 +2780,7 @@ SELECT TankID, TankType, TankVolume, TankWeight, TankMaterial, TankPicture FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Toplivo1.Properties.Settings.Default.Toplivo_ConnectionString;
+            this._connection.ConnectionString = global::Toplivo.Properties.Settings.Default.Toplivo_ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
