@@ -650,6 +650,8 @@ namespace Toplivo {
             
             private global::System.Data.DataColumn columnDate;
             
+            private global::System.Data.DataColumn columnTankType;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public OperationsDataTable() {
@@ -725,6 +727,14 @@ namespace Toplivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TankTypeColumn {
+                get {
+                    return this.columnTankType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -760,14 +770,15 @@ namespace Toplivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OperationsRow AddOperationsRow(int FuelID, int TankID, float Inc_Exp, System.DateTime Date) {
+            public OperationsRow AddOperationsRow(int FuelID, int TankID, float Inc_Exp, System.DateTime Date, string TankType) {
                 OperationsRow rowOperationsRow = ((OperationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         FuelID,
                         TankID,
                         Inc_Exp,
-                        Date};
+                        Date,
+                        TankType};
                 rowOperationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOperationsRow);
                 return rowOperationsRow;
@@ -802,6 +813,7 @@ namespace Toplivo {
                 this.columnTankID = base.Columns["TankID"];
                 this.columnInc_Exp = base.Columns["Inc_Exp"];
                 this.columnDate = base.Columns["Date"];
+                this.columnTankType = base.Columns["TankType"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -817,6 +829,8 @@ namespace Toplivo {
                 base.Columns.Add(this.columnInc_Exp);
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
+                this.columnTankType = new global::System.Data.DataColumn("TankType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTankType);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnOperationID}, true));
                 this.columnOperationID.AutoIncrement = true;
@@ -825,6 +839,10 @@ namespace Toplivo {
                 this.columnOperationID.AllowDBNull = false;
                 this.columnOperationID.ReadOnly = true;
                 this.columnOperationID.Unique = true;
+                this.columnFuelID.AllowDBNull = false;
+                this.columnTankID.AllowDBNull = false;
+                this.columnDate.AllowDBNull = false;
+                this.columnTankType.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1397,12 +1415,7 @@ namespace Toplivo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int FuelID {
                 get {
-                    try {
-                        return ((int)(this[this.tableOperations.FuelIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FuelID\' в таблице \'Operations\' равно DBNull.", e);
-                    }
+                    return ((int)(this[this.tableOperations.FuelIDColumn]));
                 }
                 set {
                     this[this.tableOperations.FuelIDColumn] = value;
@@ -1413,12 +1426,7 @@ namespace Toplivo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int TankID {
                 get {
-                    try {
-                        return ((int)(this[this.tableOperations.TankIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TankID\' в таблице \'Operations\' равно DBNull.", e);
-                    }
+                    return ((int)(this[this.tableOperations.TankIDColumn]));
                 }
                 set {
                     this[this.tableOperations.TankIDColumn] = value;
@@ -1445,12 +1453,7 @@ namespace Toplivo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime Date {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableOperations.DateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Date\' в таблице \'Operations\' равно DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableOperations.DateColumn]));
                 }
                 set {
                     this[this.tableOperations.DateColumn] = value;
@@ -1459,26 +1462,18 @@ namespace Toplivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFuelIDNull() {
-                return this.IsNull(this.tableOperations.FuelIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFuelIDNull() {
-                this[this.tableOperations.FuelIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTankIDNull() {
-                return this.IsNull(this.tableOperations.TankIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTankIDNull() {
-                this[this.tableOperations.TankIDColumn] = global::System.Convert.DBNull;
+            public string TankType {
+                get {
+                    try {
+                        return ((string)(this[this.tableOperations.TankTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TankType\' в таблице \'Operations\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOperations.TankTypeColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1495,14 +1490,14 @@ namespace Toplivo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDateNull() {
-                return this.IsNull(this.tableOperations.DateColumn);
+            public bool IsTankTypeNull() {
+                return this.IsNull(this.tableOperations.TankTypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDateNull() {
-                this[this.tableOperations.DateColumn] = global::System.Convert.DBNull;
+            public void SetTankTypeNull() {
+                this[this.tableOperations.TankTypeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2265,6 +2260,7 @@ SELECT FuelID, FuelType, FuelDensity FROM Fuels WHERE (FuelID = @FuelID)";
             tableMapping.ColumnMappings.Add("TankID", "TankID");
             tableMapping.ColumnMappings.Add("Inc_Exp", "Inc_Exp");
             tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("TankType", "TankType");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -2323,7 +2319,9 @@ SELECT OperationID, FuelID, TankID, Inc_Exp, Date FROM Operations WHERE (Operati
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT OperationID, FuelID, TankID, Inc_Exp, Date FROM dbo.Operations";
+            this._commandCollection[0].CommandText = "SELECT        Operations.OperationID, Operations.FuelID, Operations.TankID, Opera" +
+                "tions.Inc_Exp, Operations.Date, Tanks.TankType\r\nFROM            Operations INNER" +
+                " JOIN\r\n                         Tanks ON Operations.TankID = Tanks.TankID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -57,11 +57,11 @@
             this.operationsDataGridView = new System.Windows.Forms.DataGridView();
             this.operationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonShowAllRecords = new System.Windows.Forms.Button();
             this.operationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tankIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incExpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonShowAllRecords = new System.Windows.Forms.Button();
             fuelIDLabel = new System.Windows.Forms.Label();
             fuelTypeLabel = new System.Windows.Forms.Label();
             fuelDensityLabel = new System.Windows.Forms.Label();
@@ -120,7 +120,7 @@
             this.tableAdapterManager.FuelsTableAdapter = this.fuelsTableAdapter;
             this.tableAdapterManager.OperationsTableAdapter = null;
             this.tableAdapterManager.TanksTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Toplivo_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Toplivo.Toplivo_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // fuelsBindingNavigator
             // 
@@ -305,35 +305,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Операции с выбранным топливом";
             // 
-            // operationIDDataGridViewTextBoxColumn
-            // 
-            this.operationIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.operationIDDataGridViewTextBoxColumn.DataPropertyName = "OperationID";
-            this.operationIDDataGridViewTextBoxColumn.HeaderText = "Номер операции";
-            this.operationIDDataGridViewTextBoxColumn.Name = "operationIDDataGridViewTextBoxColumn";
-            this.operationIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.operationIDDataGridViewTextBoxColumn.Width = 107;
-            // 
-            // tankIDDataGridViewTextBoxColumn
-            // 
-            this.tankIDDataGridViewTextBoxColumn.DataPropertyName = "TankID";
-            this.tankIDDataGridViewTextBoxColumn.HeaderText = "Код емкости";
-            this.tankIDDataGridViewTextBoxColumn.Name = "tankIDDataGridViewTextBoxColumn";
-            // 
-            // incExpDataGridViewTextBoxColumn
-            // 
-            this.incExpDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.incExpDataGridViewTextBoxColumn.DataPropertyName = "Inc_Exp";
-            this.incExpDataGridViewTextBoxColumn.HeaderText = "Получено - Отпущено";
-            this.incExpDataGridViewTextBoxColumn.Name = "incExpDataGridViewTextBoxColumn";
-            this.incExpDataGridViewTextBoxColumn.Width = 128;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            // 
             // buttonShowAllRecords
             // 
             this.buttonShowAllRecords.Location = new System.Drawing.Point(374, 22);
@@ -343,6 +314,40 @@
             this.buttonShowAllRecords.Text = "Показать все виды топлива";
             this.buttonShowAllRecords.UseVisualStyleBackColor = true;
             this.buttonShowAllRecords.Click += new System.EventHandler(this.buttonShowAllRecords_Click);
+            // 
+            // operationIDDataGridViewTextBoxColumn
+            // 
+            this.operationIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.operationIDDataGridViewTextBoxColumn.DataPropertyName = "OperationID";
+            this.operationIDDataGridViewTextBoxColumn.HeaderText = "Номер операции";
+            this.operationIDDataGridViewTextBoxColumn.Name = "operationIDDataGridViewTextBoxColumn";
+            this.operationIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.operationIDDataGridViewTextBoxColumn.Width = 117;
+            // 
+            // tankIDDataGridViewTextBoxColumn
+            // 
+            this.tankIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.tankIDDataGridViewTextBoxColumn.DataPropertyName = "TankType";
+            this.tankIDDataGridViewTextBoxColumn.HeaderText = "Наименование емкости";
+            this.tankIDDataGridViewTextBoxColumn.Name = "tankIDDataGridViewTextBoxColumn";
+            this.tankIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tankIDDataGridViewTextBoxColumn.Width = 154;
+            // 
+            // incExpDataGridViewTextBoxColumn
+            // 
+            this.incExpDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.incExpDataGridViewTextBoxColumn.DataPropertyName = "Inc_Exp";
+            this.incExpDataGridViewTextBoxColumn.HeaderText = "Получено - Отпущено";
+            this.incExpDataGridViewTextBoxColumn.Name = "incExpDataGridViewTextBoxColumn";
+            this.incExpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.incExpDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FormFuel
             // 
@@ -400,10 +405,10 @@
         private System.Windows.Forms.DataGridView operationsDataGridView;
         private System.Windows.Forms.BindingSource operationsBindingSource;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonShowAllRecords;
         private System.Windows.Forms.DataGridViewTextBoxColumn operationIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tankIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn incExpDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button buttonShowAllRecords;
     }
 }
