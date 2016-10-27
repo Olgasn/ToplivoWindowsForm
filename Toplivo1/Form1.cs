@@ -169,8 +169,9 @@ namespace Toplivo
             formtank.tanksBindingSource.Filter = "TankID=" + strFilterTankID;
 
             formtank.ShowDialog();
-            tanksTableAdapter.Fill(toplivo_DataSet.Tanks);
 
+            //обновление после возврата в основную форму
+            tanksTableAdapter.Fill(toplivo_DataSet.Tanks);
             tanksDataGridView.Refresh();
         }
         
@@ -182,7 +183,13 @@ namespace Toplivo
             formfuel.fuelsBindingSource.Filter = "FuelID=" + strFilterFuelID;
 
             formfuel.ShowDialog();
-        }   
+
+            //обновление после возврата в основную форму
+            fuelsTableAdapter.Fill(toplivo_DataSet.Fuels);
+            fuelsDataGridView.Refresh();
+
+
+        }
 
         private void comboBoxFuelID_SelectedIndexChanged(object sender, EventArgs e)
         {
