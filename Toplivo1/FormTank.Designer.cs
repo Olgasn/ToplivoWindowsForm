@@ -256,6 +256,7 @@
             // tankIDTextBox
             // 
             this.tankIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tanksBindingSource, "TankID", true));
+            this.tankIDTextBox.Enabled = false;
             this.tankIDTextBox.Location = new System.Drawing.Point(123, 12);
             this.tankIDTextBox.Name = "tankIDTextBox";
             this.tankIDTextBox.Size = new System.Drawing.Size(152, 20);

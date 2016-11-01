@@ -55,13 +55,13 @@
             this.fuelDensityTextBox = new System.Windows.Forms.TextBox();
             this.operationsTableAdapter = new Toplivo.Toplivo_DataSetTableAdapters.OperationsTableAdapter();
             this.operationsDataGridView = new System.Windows.Forms.DataGridView();
-            this.operationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonShowAllRecords = new System.Windows.Forms.Button();
             this.operationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tankIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incExpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonShowAllRecords = new System.Windows.Forms.Button();
             fuelIDLabel = new System.Windows.Forms.Label();
             fuelTypeLabel = new System.Windows.Forms.Label();
             fuelDensityLabel = new System.Windows.Forms.Label();
@@ -250,6 +250,7 @@
             // fuelIDTextBox
             // 
             this.fuelIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fuelsBindingSource, "FuelID", true));
+            this.fuelIDTextBox.Enabled = false;
             this.fuelIDTextBox.Location = new System.Drawing.Point(139, 22);
             this.fuelIDTextBox.Name = "fuelIDTextBox";
             this.fuelIDTextBox.Size = new System.Drawing.Size(154, 20);
@@ -291,30 +292,6 @@
             this.operationsDataGridView.Size = new System.Drawing.Size(630, 150);
             this.operationsDataGridView.TabIndex = 7;
             // 
-            // operationsBindingSource
-            // 
-            this.operationsBindingSource.DataMember = "Operations";
-            this.operationsBindingSource.DataSource = this.toplivo_DataSet;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Операции с выбранным топливом";
-            // 
-            // buttonShowAllRecords
-            // 
-            this.buttonShowAllRecords.Location = new System.Drawing.Point(374, 22);
-            this.buttonShowAllRecords.Name = "buttonShowAllRecords";
-            this.buttonShowAllRecords.Size = new System.Drawing.Size(176, 23);
-            this.buttonShowAllRecords.TabIndex = 9;
-            this.buttonShowAllRecords.Text = "Показать все виды топлива";
-            this.buttonShowAllRecords.UseVisualStyleBackColor = true;
-            this.buttonShowAllRecords.Click += new System.EventHandler(this.buttonShowAllRecords_Click);
-            // 
             // operationIDDataGridViewTextBoxColumn
             // 
             this.operationIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -348,6 +325,30 @@
             this.dateDataGridViewTextBoxColumn.HeaderText = "Дата";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // operationsBindingSource
+            // 
+            this.operationsBindingSource.DataMember = "Operations";
+            this.operationsBindingSource.DataSource = this.toplivo_DataSet;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(51, 125);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(181, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Операции с выбранным топливом";
+            // 
+            // buttonShowAllRecords
+            // 
+            this.buttonShowAllRecords.Location = new System.Drawing.Point(374, 22);
+            this.buttonShowAllRecords.Name = "buttonShowAllRecords";
+            this.buttonShowAllRecords.Size = new System.Drawing.Size(176, 23);
+            this.buttonShowAllRecords.TabIndex = 9;
+            this.buttonShowAllRecords.Text = "Показать все виды топлива";
+            this.buttonShowAllRecords.UseVisualStyleBackColor = true;
+            this.buttonShowAllRecords.Click += new System.EventHandler(this.buttonShowAllRecords_Click);
             // 
             // FormFuel
             // 
